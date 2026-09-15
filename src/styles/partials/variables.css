@@ -1,0 +1,64 @@
+:root {
+	/* Primary - Blue */
+	--color-primary-dark: #001f2a; /* default */
+	--color-primary-semidark: #0f3240;
+	--color-primary: #1c4554;
+	--color-primary-light: #6e91a2;
+
+	/* Secondary - Orange */
+	--color-secondary-dark: #c15b27;
+	--color-secondary-semidark: #d67c2e;
+	--color-secondary: #e19536; /* default */
+	--color-secondary-light: #eab260;
+
+	/* Tertiary - Teal */
+	--color-tertiary-dark: #15646b;
+	--color-tertiary: #1f8ea3; /* default */
+	--color-tertiary-light: #3ca4b0;
+
+	/* Text */
+	--color-black: #001f2a;
+	--color-white: #e1e2e1;
+	--font-heading: 'Hind Guntur', sans-serif;
+	--font-body: 'Poppins', sans-serif;
+	--line-height-heading: 1.2;
+	--line-height-subheading: 1.4;
+	--line-height-body: 1.6;
+
+	/* Buttons */
+	--button-primary-bg: var(--color-secondary-semidark);
+	--button-primary-color: var(--color-black);
+	--button-primary-hover-bg: var(--color-secondary);
+	--button-secondary-bg: var(--color-tertiary-dark);
+	--button-secondary-color: var(--color-white);
+	--button-secondary-hover-bg: var(--color-tertiary);
+
+	/* Success Colors */
+	--color-success-dark: #388e3c;
+	--color-success: #4caf50;
+	--color-success-light: #81c784;
+
+	/* Error Colors */
+	--color-error-dark: #b71c1c;
+	--color-error: #e53935;
+	--color-error-light: #ff867c;
+
+	/* Random colors */
+	--color-accent: var(--color-success-light);
+	--color-info: var(--color-tertiary-light);
+	--color-alert: var(--color-error-light);
+
+	/* Spacing */
+	--spacing-quarter: 0.25rem;
+	--spacing-half: 0.5rem;
+	--spacing-three-quarters: 0.75rem;
+	--spacing-single: 1rem;
+	--spacing-single-quarter: 1.25rem;
+	--spacing-single-half: 1.5rem;
+	--spacing-double: 2rem;
+	--spacing-double-half: 2.5rem;
+	--spacing-triple: 3rem;
+	--spacing-quadruple: 4rem;
+	--spacing-quintuple: 5rem;
+	--spacing-sextuple: 6rem;
+}

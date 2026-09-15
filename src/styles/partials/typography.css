@@ -1,0 +1,70 @@
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+label {
+	font-family: var(--font-heading);
+	margin-bottom: var(--spacing-single);
+	text-wrap: balance;
+}
+
+h1,
+.h1 {
+	font-size: 2.5rem;
+	line-height: var(--line-height-heading);
+	font-weight: 700;
+}
+
+h2,
+.h2 {
+	font-size: 2rem;
+	line-height: var(--line-height-subheading);
+	font-weight: 600;
+}
+
+h3,
+.h3 {
+	font-size: 1.5rem;
+	font-weight: 600;
+}
+
+h4,
+.h4 {
+	font-size: 1.25rem;
+}
+
+h5,
+.h5 {
+	font-size: 1rem;
+}
+
+/* Text Elements */
+a,
+p,
+input,
+span,
+button,
+strong,
+small,
+body {
+	font-family: var(--font-body);
+	line-height: var(--line-height-body);
+}
+
+p {
+	font-weight: 400;
+}
+
+a {
+	color: inherit;
+	text-decoration-line: none;
+	font-weight: 700;
+}
