@@ -1,0 +1,208 @@
+---
+interface HeroImage {
+	src: string;
+	alt: string;
+	width?: number;
+	height?: number;
+}
+
+interface HeroButton {
+	href: string;
+	title: string;
+	selectTheme?: 'primary' | 'secondary' | 'tertiary' | 'link';
+	isExternal?: boolean;
+	target?: string;
+}
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: HeroImage;
+	buttons?: HeroButton[];
+}
+
+const { title, description, image, buttons = [] } = Astro.props;
+
+const visibleButtons = buttons.filter((button) => button.href);
+---
+
+<div class:list={['hero', { 'hero--with-image': image?.src }]}>
+	{
+		image?.src && (
+			<div class="mediaContainer">
+				<img
+					class="image"
+					src={image.src}
+					alt={image.alt ?? ''}
+					width={image.width ?? 720}
+					height={image.height ?? 560}
+				/>
+			</div>
+		)
+	}
+	<div class="contentContainer">
+		<article class="content">
+			{title && <h1>{title}</h1>}
+			{description && <h2>{description}</h2>}
+			{
+				visibleButtons.length > 0 && (
+					<div class="buttonWrapper">
+						{visibleButtons.map((button) => {
+							const external = button.isExternal || button.target === '_blank';
+							return (
+								<a
+									class={`button button--${button.selectTheme ?? 'primary'}`}
+									href={button.href}
+									target={external ? '_blank' : undefined}
+									rel={external ? 'noreferrer' : undefined}
+								>
+									{button.title}
+								</a>
+							);
+						})}
+					</div>
+				)
+			}
+		</article>
+	</div>
+</div>
+
+<style>
+	.hero {
+		background-color: var(--color-primary-dark);
+		color: var(--color-white);
+		margin-top: 0;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: var(--spacing-double);
+		width: 100%;
+		max-width: 100%;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.mediaContainer {
+		position: relative;
+		height: auto;
+		width: 100%;
+		max-width: 100%;
+		min-width: 0;
+		border-radius: inherit;
+	}
+
+	.image {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.contentContainer {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: flex-start;
+		position: relative;
+		min-width: 0;
+	}
+
+	.content {
+		padding: var(--spacing-single);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-single);
+	}
+
+	.content *:not(a):not(.button) {
+		text-shadow: 1px 1px 2px var(--color-primary-dark);
+	}
+
+	.content h1 {
+		font-size: 3rem;
+		margin-bottom: initial;
+		overflow-wrap: break-word;
+		text-wrap: wrap;
+	}
+
+	.content h2 {
+		font-size: 1rem;
+		font-weight: 500;
+		margin-bottom: initial;
+		text-wrap: wrap;
+	}
+
+	.buttonWrapper {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		gap: var(--spacing-single-half);
+		padding-bottom: var(--spacing-single);
+		width: fit-content;
+	}
+
+	@media (width >= 768px) {
+		.hero--with-image {
+			flex-direction: row;
+			position: relative;
+			height: 561px;
+			max-height: 561px;
+		}
+
+		.hero--with-image .mediaContainer,
+		.hero--with-image .contentContainer {
+			flex: 0 0 50%;
+		}
+
+		.image {
+			width: inherit;
+			height: inherit;
+			aspect-ratio: 1 / 1;
+		}
+
+		.content {
+			padding: var(--spacing-double);
+			gap: var(--spacing-single-half);
+		}
+
+		.hero--with-image .mediaContainer {
+			max-height: 561px;
+			height: 561px;
+		}
+
+		.buttonWrapper {
+			flex-direction: row;
+			gap: var(--spacing-single);
+			width: fit-content;
+		}
+	}
+
+	@media (width >= 1440px) {
+		.hero {
+			max-width: var(--container-desktop);
+			border-bottom-right-radius: var(--spacing-single-quarter);
+			border-bottom-left-radius: var(--spacing-single-quarter);
+			margin-bottom: var(--spacing-triple);
+			overflow: hidden;
+		}
+
+		.hero--with-image .mediaContainer {
+			max-height: initial;
+		}
+
+		.content h1 {
+			font-size: 3.5rem;
+			padding-bottom: var(--spacing-single);
+		}
+
+		.content h2 {
+			font-size: 1.5rem;
+			padding-bottom: var(--spacing-single);
+		}
+	}
+</style>

@@ -1,0 +1,165 @@
+---
+interface CardImage {
+	src: string;
+	alt: string;
+	width?: number;
+	height?: number;
+}
+
+interface CardItem {
+	id?: string;
+	title?: string;
+	description?: string;
+	image?: CardImage;
+}
+
+interface Props {
+	id?: string;
+	title?: string;
+	description?: string;
+	cards?: CardItem[];
+}
+
+const { id, title, description, cards = [] } = Astro.props;
+---
+
+<section class="cards" id={id}>
+	{
+		title && (
+			<header class="header">
+				{title && <h2>{title}</h2>}
+				{description && <p>{description}</p>}
+			</header>
+		)
+	}
+	{
+		cards.length > 0 && (
+			<div class="wrapper">
+				{cards.map((item) => (
+					<article class="card">
+						{item.image?.src && (
+							<figure class="imageContainer">
+								<img
+									class="image"
+									src={item.image.src}
+									alt={item.image.alt ?? ''}
+									width={item.image.width ?? 150}
+									height={item.image.height ?? 150}
+								/>
+							</figure>
+						)}
+						{(item.title || item.description) && (
+							<div class="body">
+								{item.title && <h3 class="title">{item.title}</h3>}
+								{item.description && <p>{item.description}</p>}
+							</div>
+						)}
+					</article>
+				))}
+			</div>
+		)
+	}
+</section>
+
+<style>
+	.cards {
+		background-color: var(--color-primary-dark);
+	}
+
+	.header,
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.header {
+		gap: var(--spacing-single);
+		padding-bottom: var(--spacing-double);
+	}
+
+	.wrapper {
+		gap: var(--spacing-single);
+		flex-wrap: wrap;
+	}
+
+	.card {
+		display: flex;
+		flex-direction: column;
+		border-radius: var(--spacing-single-quarter);
+		border: 1px solid var(--color-white);
+		padding: var(--spacing-single);
+		width: 100%;
+		min-width: 0;
+		align-items: center;
+		color: var(--color-white);
+		transition-duration: 250ms;
+	}
+
+	.card:focus,
+	.card:hover {
+		background-color: var(--color-primary-semidark);
+		border-color: var(--color-secondary);
+	}
+
+	.body {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		width: 100%;
+	}
+
+	.imageContainer {
+		position: relative;
+		margin-top: var(--spacing-single);
+		margin-bottom: var(--spacing-double);
+	}
+
+	.image {
+		display: block;
+		width: 150px;
+		height: 150px;
+		max-width: 100%;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.title {
+		color: var(--color-white);
+		font-weight: 600;
+		padding-bottom: var(--spacing-single);
+		text-align: center;
+	}
+
+	.body p {
+		text-align: center;
+	}
+
+	@media (width >= 768px) {
+		.wrapper {
+			flex-direction: row;
+		}
+
+		.card {
+			max-width: 50%;
+			flex: 0 0 calc(50% - var(--spacing-single));
+		}
+	}
+
+	@media (width >= 1440px) {
+		.header {
+			max-width: var(--container-ipad-landscape);
+			flex: 0 0 50%;
+		}
+
+		.wrapper {
+			gap: var(--spacing-double);
+		}
+
+		.card {
+			max-width: calc(100% / 4);
+			flex: 0 0 calc(25% - var(--spacing-double));
+		}
+	}
+</style>
