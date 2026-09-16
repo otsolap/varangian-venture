@@ -1,0 +1,45 @@
+---
+interface Props {
+	id?: string;
+	title?: string;
+	description?: string;
+	selectTheme?: 'primary' | 'secondary' | 'tertiary';
+}
+
+const { id, title, description, selectTheme = 'secondary' } = Astro.props;
+const show = Boolean(title || description);
+---
+
+{
+	show && (
+		<section
+			class:list={[
+				'content',
+				`bg-${selectTheme}`,
+				{ 'color-black': selectTheme === 'primary' },
+			]}
+			id={id}
+		>
+			{title && <h2>{title}</h2>}
+			{description && <p>{description}</p>}
+		</section>
+	)
+}
+
+<style>
+	.content {
+		margin-right: auto;
+		margin-left: auto;
+		width: 100%;
+		word-wrap: break-word;
+		padding-left: var(--spacing-double);
+		padding-right: var(--spacing-double);
+	}
+
+	@media (width >= 1440px) {
+		.content {
+			max-width: var(--container-desktop);
+			border-radius: var(--spacing-single-quarter);
+		}
+	}
+</style>

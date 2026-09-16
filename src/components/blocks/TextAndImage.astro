@@ -1,0 +1,144 @@
+---
+interface BlockImage {
+	src: string;
+	alt: string;
+	width?: number;
+	height?: number;
+}
+
+interface Props {
+	id?: string;
+	title?: string;
+	description?: string;
+	image?: BlockImage;
+	alignImage?: 'left' | 'right';
+}
+
+const {
+	id,
+	title,
+	description,
+	image,
+	alignImage = 'right',
+} = Astro.props;
+
+const showText = Boolean(title || description);
+---
+
+<section class="textAndImage" id={id}>
+	<div class:list={['wrapper', { reverseWrapper: alignImage !== 'left' && image?.src }]}>
+		{
+			image?.src && (
+				<div class="column">
+					<figure class="imageContainer">
+						<img
+							class="image"
+							src={image.src}
+							alt={image.alt ?? ''}
+							width={image.width ?? 668}
+							height={image.height ?? 500}
+						/>
+					</figure>
+				</div>
+			)
+		}
+		{
+			showText && (
+				<div class="column">
+					{title && <h2>{title}</h2>}
+					{description && <p>{description}</p>}
+				</div>
+			)
+		}
+	</div>
+</section>
+
+<style>
+	.textAndImage {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-single);
+	}
+
+	.column {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		width: 100%;
+		min-width: 0;
+		padding: var(--spacing-single);
+	}
+
+	.imageContainer {
+		position: relative;
+		height: 300px;
+		width: 300px;
+		max-width: 100%;
+	}
+
+	.image {
+		border-radius: var(--spacing-single-quarter);
+		width: inherit;
+		height: inherit;
+		max-width: 100%;
+		box-shadow: var(--spacing-half) var(--spacing-half) 0 0 var(--color-secondary);
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	@media (width >= 768px) {
+		.wrapper {
+			flex-direction: row;
+		}
+
+		.reverseWrapper {
+			flex-direction: row-reverse;
+		}
+
+		.column {
+			flex: 0 0 50%;
+			align-items: flex-start;
+			justify-content: center;
+		}
+
+		.imageContainer {
+			height: 400px;
+			width: 400px;
+		}
+
+		.image {
+			box-shadow: var(--spacing-single) var(--spacing-single) 0 0 var(--color-secondary);
+		}
+	}
+
+	@media (width >= 1024px) {
+		.imageContainer {
+			width: 100%;
+			max-width: calc(100% - var(--spacing-single));
+			height: auto;
+			aspect-ratio: 16 / 9;
+		}
+
+		.image {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	@media (width >= 1280px) {
+		.imageContainer {
+			max-width: calc(100% - 24px);
+		}
+
+		.image {
+			box-shadow: 24px 24px 0 0 var(--color-secondary);
+		}
+	}
+</style>
