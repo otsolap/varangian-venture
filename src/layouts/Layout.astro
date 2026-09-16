@@ -1,5 +1,9 @@
 ---
 import '../styles/global.css';
+import Header from '../components/navigation/Header.astro';
+import Footer from '../components/navigation/Footer.astro';
+import MobileFooter from '../components/navigation/MobileFooter.astro';
+import navigation from '../data/navigation.json';
 
 interface Props {
 	title?: string;
@@ -21,6 +25,9 @@ const { title = 'Varangian Venture', description } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<Header {...navigation.header} />
 		<slot />
+		<Footer {...navigation.footer} />
+		<MobileFooter links={navigation.header.links} />
 	</body>
 </html>

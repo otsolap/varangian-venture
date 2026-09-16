@@ -1,0 +1,161 @@
+---
+interface HeaderLink {
+	href: string;
+	title: string;
+}
+
+interface Props {
+	title: string;
+	slogan?: string;
+	links?: HeaderLink[];
+}
+
+const { title, slogan, links = [] } = Astro.props;
+const path = Astro.url.pathname;
+---
+
+<div class="headerWrap">
+	<header class="header">
+		<div class="brand">
+			{title && (
+				<a class="title" href="/">
+					{title}
+				</a>
+			)}
+			{slogan && <p class="slogan">{slogan}</p>}
+		</div>
+	</header>
+	{
+		links.length > 0 && (
+			<nav class="navigation" aria-label="Primary">
+				<div class="wrapper">
+					<div class="menu">
+						{links.map((link) => (
+							<a
+								class:list={['link', { active: path === link.href }]}
+								href={link.href}
+							>
+								{link.title}
+							</a>
+						))}
+					</div>
+				</div>
+			</nav>
+		)
+	}
+</div>
+
+<style>
+	.headerWrap {
+		position: sticky;
+		top: 0;
+		z-index: 50;
+		background-color: var(--color-primary-dark);
+	}
+
+	.header {
+		display: flex;
+		flex-direction: row;
+		min-height: 80px;
+		width: 100%;
+		padding-left: var(--spacing-half);
+		padding-right: var(--spacing-half);
+		align-items: center;
+		justify-content: center;
+		background-color: var(--color-primary-dark);
+		border-bottom: 1px solid var(--color-white);
+	}
+
+	.navigation,
+	.slogan {
+		display: none;
+	}
+
+	.title {
+		font-size: 1.25rem;
+		margin-bottom: 0;
+		font-weight: 900;
+		text-shadow: 1px 1px 2px #001f2a;
+	}
+
+	@media (width >= 768px) {
+		.header {
+			flex-direction: column;
+			align-items: stretch;
+			padding: initial;
+			border-bottom: none;
+		}
+
+		.brand {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: var(--spacing-double);
+			width: 100%;
+			max-width: var(--container-desktop);
+			margin-inline: auto;
+			padding: var(--spacing-half) var(--spacing-double);
+		}
+
+		.slogan {
+			font-weight: 600;
+			display: block;
+			margin-bottom: 0;
+			text-shadow: 1px 1px 2px #001f2a;
+		}
+
+		.navigation {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+			padding: var(--spacing-half);
+			background-color: var(--color-primary-dark);
+			border-bottom: 1px solid var(--color-white);
+		}
+
+		.wrapper {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			width: 100%;
+			max-width: var(--container-desktop);
+			margin: 0 auto;
+			padding-left: var(--spacing-double);
+			padding-right: var(--spacing-double);
+		}
+
+		.menu {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: var(--spacing-double);
+		}
+
+		.link {
+			transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+			text-shadow: 1px 1px 2px #001f2a;
+		}
+
+		.link:hover,
+		.link:focus {
+			color: var(--color-secondary-semidark);
+			font-weight: 900;
+		}
+	}
+
+	@media (width >= 1440px) {
+		.title {
+			font-size: 2.5rem;
+			margin-bottom: var(--spacing-single);
+		}
+
+		.link {
+			font-size: var(--spacing-double);
+		}
+
+		.active {
+			font-weight: 900;
+		}
+	}
+</style>

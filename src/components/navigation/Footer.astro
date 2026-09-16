@@ -1,0 +1,215 @@
+---
+interface FooterLink {
+	href: string;
+	title: string;
+	isExternal?: boolean;
+}
+
+interface Props {
+	social?: {
+		title?: string;
+		links?: FooterLink[];
+	};
+	brand?: {
+		title?: string;
+		description?: string;
+	};
+	subFooter?: {
+		title?: string;
+		link?: FooterLink;
+	};
+}
+
+const { social, brand, subFooter } = Astro.props;
+const year = new Date().getFullYear();
+const socialLinks = social?.links?.filter((link) => link.href) ?? [];
+---
+
+<footer class="footer">
+	<div class="columnContainer footerColumns-2">
+		<div class="column">
+			{social?.title && <h3 class="heading">{social.title}</h3>}
+			{
+				socialLinks.length > 0 && (
+					<div class="linkWrapper">
+						{socialLinks.map((link) => (
+							<a
+								class="link"
+								href={link.href}
+								target={link.isExternal ? '_blank' : undefined}
+								rel={link.isExternal ? 'noreferrer' : undefined}
+							>
+								{link.title}
+							</a>
+						))}
+					</div>
+				)
+			}
+		</div>
+		<div class="column">
+			{brand?.title && <h3 class="heading">{brand.title}</h3>}
+			{brand?.description && <p class="text">{brand.description}</p>}
+		</div>
+	</div>
+	{
+		subFooter && (
+			<div class="subFooter">
+				<div class="subFooterContent">
+					{subFooter.title && (
+						<span class="brandName">
+							{subFooter.title} &#169; {year}
+						</span>
+					)}
+					{subFooter.link?.href && (
+						<>
+							<span class="desktop-only"> &#124;</span>
+							<a class="legal" href={subFooter.link.href}>
+								{subFooter.link.title}
+							</a>
+						</>
+					)}
+				</div>
+			</div>
+		)
+	}
+</footer>
+
+<style>
+	.footer {
+		margin: 0 auto;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--color-primary-dark);
+		padding-bottom: var(--spacing-quintuple);
+		border-top: 1px solid var(--color-white);
+	}
+
+	.column {
+		flex: 100%;
+		max-width: 100%;
+		min-width: 0;
+	}
+
+	.column:first-of-type {
+		margin-top: var(--spacing-single);
+		margin-bottom: var(--spacing-single);
+	}
+
+	.columnContainer {
+		gap: var(--spacing-single);
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		padding: var(--spacing-double) var(--spacing-single);
+	}
+
+	.heading {
+		font-weight: 900;
+		padding-top: var(--spacing-single);
+	}
+
+	.text {
+		font-weight: 700;
+		padding: var(--spacing-half) 0;
+		margin-bottom: var(--spacing-single);
+	}
+
+	.linkWrapper {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-single);
+		margin-top: var(--spacing-single);
+	}
+
+	.link,
+	.legal {
+		font-size: 1rem;
+		transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.link:focus,
+	.link:hover,
+	.legal:focus,
+	.legal:hover {
+		color: var(--color-secondary);
+	}
+
+	.subFooter {
+		padding: var(--spacing-single);
+		margin-top: var(--spacing-single);
+		border-top: 2px solid var(--color-white);
+	}
+
+	.subFooterContent {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-half);
+	}
+
+	@media (width >= 768px) {
+		.footer {
+			padding-bottom: var(--spacing-triple);
+		}
+
+		.columnContainer {
+			flex-direction: row;
+			padding-left: var(--spacing-double);
+			padding-right: var(--spacing-double);
+		}
+
+		.column:first-of-type {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		.footerColumns-2 .column {
+			max-width: calc(100% / 2);
+			flex: 0 0 calc(50% - var(--spacing-single));
+		}
+
+		.subFooter {
+			padding-left: var(--spacing-double);
+			padding-right: var(--spacing-double);
+		}
+	}
+
+	@media (width >= 1440px) {
+		.footer {
+			padding-bottom: 0;
+			justify-content: center;
+			max-width: var(--container-desktop);
+		}
+
+		.columnContainer {
+			gap: var(--spacing-double);
+			max-width: var(--container-desktop);
+			margin-left: auto;
+			margin-right: auto;
+			padding: initial;
+		}
+
+		.footerColumns-2 .column {
+			max-width: calc(100% / 2);
+			flex: 0 0 calc(50% - var(--spacing-double));
+		}
+
+		.subFooter {
+			margin-top: var(--spacing-double);
+		}
+
+		.subFooterContent {
+			flex-direction: row;
+			margin: 0 auto;
+			max-width: var(--container-desktop);
+		}
+
+		.brandName {
+			padding-right: var(--spacing-half);
+		}
+
+		.legal {
+			padding-left: var(--spacing-half);
+		}
+	}
+</style>
