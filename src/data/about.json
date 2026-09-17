@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "title": "About — Varangian Venture",
+    "description": "We build and back companies that last."
+  },
+  "textAndImage": {
+    "title": "Who am I? Otso Lappalainen",
+    "description": [
+      "I'm not just a digital enthusiast; I live and breathe the online realm. While many know me as a web wizard, I pride myself on being a tech-savvy digital nomad, constantly on the move yet always connected. My passion extends beyond crafting intricate websites and delves deep into enhancing customer experiences, informed by data-driven insights from web analytics.",
+      "Beyond the screen, my zeal for life finds me sweating it out in the gym and practicing the disciplined art of Muay Thai boxing. This combination of mental acuity and physical dedication shapes me into a versatile professional, ready to tackle challenges with both analytical precision and boundless energy."
+    ],
+    "alignImage": "left",
+    "image": {
+      "src": "/images/otso.jpg",
+      "alt": "Portrait of Otso Lappalainen"
+    }
+  },
+  "textarea": {
+    "description": [
+      "Varangian Venture isn’t just a name; it's a testament to my journey and dedication to forging digital paths. Rooted in the spirit of exploration, adaptation, and entrepreneurial vigor, I am committed to helping you navigate the online realm with confidence. Drawing from my Nordic heritage and digital nomad lifestyle, I offer specialized solutions tailored to your unique entrepreneurial needs, ensuring your online endeavors are both explorative and grounded.",
+      "As a freelancer specializing in software development and digital marketing, my approach is as singular and focused as the name suggests. I understand the digital challenges you face, and I'm here to turn those challenges into opportunities, ensuring your online venture thrives."
+    ]
+  },
+  "cards": {
+    "title": "We Will Make a Dream Team If:",
+    "description": "Success in the digital arena demands action, resilience, strategic insight, and unwavering commitment. If these traits resonate with you, we're set to turn ambitious goals into impactful realities. Together, we can forge a partnership destined for digital triumph",
+    "cards": [
+      {
+        "title": "You're Action-Oriented",
+        "description": "When it comes to setting your digital aspirations in motion, you don't just dream – you act. You recognize the importance of timely execution and are poised to take on the ever-evolving challenges of the online world, transforming vision into tangible results."
+      },
+      {
+        "title": "Resilience Runs in Your Veins",
+        "description": "In the unpredictable seas of online entrepreneurship, you have the mettle to weather any storm. Challenges are just stepping stones, and every setback is an opportunity in disguise, pushing you closer to your goals."
+      },
+      {
+        "title": "Stratetic Minded",
+        "description": "You understand the value of strategic investment for long-term success. Recognizing the potential of the digital domain, you're prepared to allocate resources wisely to ensure a robust online presence, believing that a well-funded venture today is the cornerstone of tomorrow's triumphs."
+      },
+      {
+        "title": "Commitment is Your Middle Name",
+        "description": "Your dedication is unwavering. You believe in the journey as much as the destination, investing heart and soul into your venture. With a relentless drive, you're prepared to give it your all, reaping the rewards of persistence and dedication in the digital domain."
+      }
+    ]
+  }
+}

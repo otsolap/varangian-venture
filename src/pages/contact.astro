@@ -1,0 +1,8 @@
+---
+import Layout from '../layouts/Layout.astro';
+import contact from '../data/contact.json';
+---
+
+<Layout {...(contact.meta ?? {})}>
+	<main></main>
+</Layout>

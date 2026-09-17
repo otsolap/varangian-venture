@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "title": "Services — Varangian Venture",
+    "description": "We build and back companies that last."
+  },
+  "hero": {
+    "title": "Start your online presence without tech hassle",
+    "description": "Embark on your digital odyssey, steering your business towards unparalleled online horizons.",
+    "image": {
+      "src": "/images/varangian-theme-hero.jpg",
+      "alt": "Golden-hour view of Constantinople with sailing ships on the Bosphorus"
+    }
+  },
+  "textarea": {
+    "description": [
+      "Are you an entrepreneur eager to establish your own website but unsure where to begin? Each day, you ponder your options, yet your potential clients remain unaware of your business.. Or perhaps you do have a presence on social media, but feel at the mercy of ever-changing algorithms. What if these algorithms shift again, leaving you out of the loop?",
+      "I understand that starting your own website can seem overwhelming. Maybe you're unsure where to begin, or perhaps you've researched extensively but find yourself paralyzed by the array of options. How can you be certain you're making the right choice?",
+      "A well-crafted website serves as a dynamic communication tool between you and your audience. It offers an effective platform for showcasing your services, uniqueness, and insights, while also providing a portal for audience engagement. Imagine it as your digital real estate – where you are the landlord, fully in control. It works tirelessly for you, even while you sleep.",
+      "Do you like the sound of that? Imagine if there was a crafted solution, ready and waiting to be yours. A solution that propels you on a digital odyssey, steering your business towards the boundless opportunities of the online world."
+    ]
+  },
+  "cards": {
+    "title": "The Varangian Theme",
+    "description": "Crafted. Ready. Yours. I build modern software solutions that make websites more. functional, safer, and cost-efficient.",
+    "cards": [
+      {
+        "title": "Easy Content Crafting",
+        "description": "Build with open-source solutions. This very site you are viewing is done with the same very tools I am offering to you. Easy to use content system management tool allows you to craft your content and pages with ease. All without the need of any technical savviness."
+      },
+      {
+        "title": "Reach your audience.",
+        "description": "Allow people to reach out to you via forms or email, while alongside gathering a newsletter subscription list. I’m offering build-in integrations with newsletter services to reach out your audience, while building your subscribers list under your own database. All under your control and ownership."
+      },
+      {
+        "title": "Bonfire Draw",
+        "description": "The site’s design and user experience will be crafted to match with your audience needs. You will have tools to create variety of content without being limited by strict page templates. Behind the scenes Matomo Analytics is running, tracking, and following your audiences’ behavior. All tracking data will be exclusively owned by you."
+      },
+      {
+        "title": "Maintenance & Support",
+        "description": "A website is like real estate. You want to maintain it and upgrade it as you get deeper into your voyage. I’m not here to make a quick buck but instead think of the long-term picture. I actively look out for my projects and enjoy further co-operations even after release."
+      }
+    ]
+  },
+  "evenIf": {
+    "title": "You’ll be able this system even if:",
+    "description": [
+      "You’re running on a tight schedule",
+      "You doubt your creative flair.",
+      "You’re concerned about your audience finding you.",
+      "You’re unfamiliar with the online environment."
+    ]
+  },
+  "discover": {
+    "title": "With The Varangian Theme you will discover",
+    "cards": [
+      {
+        "title": "How smooth it is to weave content",
+        "description": "I’ve chosen stylish modern elements for you to craft rich and varied content, that will resonate with your brand and audience. Easily craft and manage your content even with a tight schedule or doubts about your creative knack."
+      },
+      {
+        "title": "You have a 24/7 marketing house",
+        "description": "Engage directly with your audience through the site, its forms, your email platform and with the additional support of newsletter subscription service. You will be able to keep track of the audiences’ behavior to better understand what resonates and works for them."
+      },
+      {
+        "title": "You have total control",
+        "description": "Over your online presence, independent of social media algorithm changes. Your website will work for you non-stop to promote your services, even while you are busy working on your core mission."
+      },
+      {
+        "title": "You've Enlisted a Loyal Varangian Guard",
+        "description": "Just as the Varangian Guards we’re the trusted elite of the Byzantine emperors, I stand alongside you in this digital odyssey. I’m focused on the long-term maintenance and advancements of the website. I’m not interested in quick transactional services but rather long-term relationship to help you scale your online presence and support you in your business ventures."
+      }
+    ]
+  },
+  "plans": {
+    "title": "The Varangian Theme",
+    "description": "Choose your venture",
+    "cards": [
+      {
+        "title": "Premium: Varangian Expedition",
+        "description": "3000€\n0 % VAT\n\nBest for entrepreneurs who want to tip their toes into the water. You will receive a simple but effective website.\n\nTheme designed and developed for your brand.\nHosting\nDomain registration\nEmail"
+      },
+      {
+        "title": "Deluxe: Odyssey Navigator",
+        "description": "5000€\n0 % VAT\n\nSuitable for businesses seeking more growth and engagement\n\nEverything in Premium, plus:\nThe all-in-one-solution\nNewsletter for building your audience.\nMatomo Analytics for traffic. Track and understand your audience."
+      },
+      {
+        "title": "Ultimate: Constantinopolitan Conquest",
+        "description": "8000€\n0 % VAT\n\nPerfect for businesses aiming for a standout online presence with added support of advertised traffic.\n\nAll features of Deluxe, plus:\nMidjourney integration for unique, AI-generated art to match your brand. Forget boring stock photos or amateur photos taken from your phone.\nGoogle Ads setup for increased visibility and reach."
+      }
+    ]
+  },
+  "banner": {
+    "title": "Ready to Launch Your Digital Odyssey?",
+    "selectTheme": "secondary",
+    "button": {
+      "title": "Contact",
+      "href": "/contact",
+      "selectTheme": "primary"
+    }
+  },
+  "textAndImage": {
+    "title": "Hey, i ‘m Otso Lappalainen.",
+    "description": [
+      "I’ve been on the web scene for soon close to 10 years and I know what it’s like to be a beginner when it comes to starting your online voyage. I’m here to guide you through so that you wouldn’t waste your time, money, and efforts in getting started.",
+      "I’ve helped businesses from solopreneurs to large corporations in building high quality websites that are easy and enjoyable to use. My skill stack is focused on modern open-source technology. I build modern software solutions that make websites more. functional, safer, and cost-efficient.",
+      "No need to guess what analytics, email, or newsletter services to use alongside your new websites. My solutions will provide you an all-in-one house solution."
+    ]
+  },
+  "accordion": {
+    "title": "Frequently Asked Questions",
+    "description": "Have any questions left? Here you can find the most frequently asked questions. Please do be in touch if you're still left pondering about a certain topic or aspect.",
+      "accordions": [
+    {
+      "title": "Can I add features to my website later on?",
+      "description": "I am interested in the long term support of the website and am more than happy to discuss additional new features post launch."
+    },
+    {
+      "title": "Can you include multilingual support on my website?",
+      "description": "Due to the nature of how subdomains work and the best approaches on tracking traffic. I do not develope multilingual websites. I can however offer an custom deal regarding two domains."
+    },
+    {
+      "title": "Do you offer e-commerce website development?",
+      "description": "At this moment no. This theme is suitable for presenting your products and services, but it's not an e-commerce platform at all. I would highly recommend finding a Shopify Developer for those needs and requirements."
+    },
+    {
+      "title": "Do you offer flexible payment instantes?",
+      "description": "Yes. The initial deposit will half of the chosen package, but the latter half we can agree on a 3 month recurring payment with 20% interest rate."
+    },
+    {
+      "title": "Do you offer logo design or branding services?",
+      "description": "Yes. On my \"Ultimate Odyssey\" package offers I offer content creation via artificial intelligence."
+    },
+    {
+      "title": "Do you provide content creation or copywriting services?",
+      "description": "My \"Ultimate Odyssey\" package offers visual content creation via artificial intelligence."
+    },
+    {
+      "title": "Do you provide Search Engine Optimization (SEO) services?",
+      "description": "When a web site is build with modern tools and software. That in itself is already a reason why Google or other search engines would provide good spot for a page. Each page you create can also have it's automatic or custom generated Meta-information so that you can control how information is viewed on search results and social media."
+    },
+    {
+      "title": "Do you provide training on how to manage my website?",
+      "description": "Yes! Once the website is ready from a technical standpoint I will offer an hour tutorial how the website works, in which afterwards you are free to create your website. Once you are done on your end and the website is launched. I will offer one more training session where we can tailor the session on your requests."
+    },
+    {
+      "title": "Do you provide website maintenance services?",
+      "description": "Yes it's one of my core values. I will be hosting and maintaining your website for you."
+    },
+    {
+      "title": "Do you require a deposit to start the project?",
+      "description": "Yes. The initial deposit will half of the chosen package."
+    },
+    {
+      "title": "How are revisions and feedback handled during the development process?",
+      "description": "During the layout design process you will have the opportunity for two revisions and after that we will agree on the layout and develop the theme. If any changes are requested during the process of the development these will be handled individually. If the tasks are small the changes can be done pro bono. Depending on the scale however if the changes are subsquential I will charge 110€/hour rate on changes."
+    },
+    {
+      "title": "How long does a project typically take?",
+      "description": "The entire process of the project is somewhere the lines of three to four months. It includes the design phase, development time, content creation time and getting ready for launch. Please note that any revisions or additional features implemented during the process will extend the project's length time."
+    },
+    {
+      "title": "What are the ongoing costs after the website is launched?",
+      "description": "Yes since the hosting is done by my end the monthly costs will amount to €€€ per year."
+    },
+    {
+      "title": "What is your refund policy?",
+      "description": "The way my process works is as follows. We will have our introductionary negotitations about your plans and desires. We will then go two rounds of layout design and how the site should operate. If during this process we find ourselves in an agreement. I won't continue the project further. I will only charge you up to 1500€ and refund the rest. Rights to the layout designs will be kept by me."
+    },
+    {
+      "title": "What payment methods do you accept?",
+      "description": "I accept payment via either PayPal or Direct Bank transfer. I am also open to being paid in Bitcoin."
+    },
+    {
+      "title": "Will my website be compliant with data protection laws?",
+      "description": "Yes. All the tools used here will make sure your data is owned by you. Making your site compliant to the European Union's General Data Protection Rights (GDPR) by default."
+    }
+  ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "title": "Varangian Venture",
+    "description": "We build and back companies that last."
+  },
+  "hero": {
+    "title": "We build and back companies that last.",
+    "description": "Varangian Venture partners with founders from first idea through scale. Edit this copy in src/data/home.json.",
+    "image": {
+      "src": "/images/hero.jpg",
+      "alt": "A longship on a dark Nordic fjord at dawn"
+    },
+    "buttons": [
+      { "title": "See the work", "href": "#work", "selectTheme": "primary" },
+      { "title": "Get in touch", "href": "/contact", "selectTheme": "secondary" }
+    ]
+  },
+  "cards": {
+    "title": "The Essentials",
+    "description": "Handpicked tools and strategies, crafted meticulously for your online odyssey, ensuring every step is a leap towards success.",
+    "cards": [
+      {
+        "title": "Design",
+        "description": "Forging designs with the precision of a seasoned craftsman. Dive into a world of aesthetics where modern techniques merge with artisan dedication, ensuring your online presence is both a work of art and a beacon of quality."
+      },
+      {
+        "title": "Website Building",
+        "description": "Crafting seamless digital landscapes tailored uniquely for your brand. Dive into the vast digital seas with a platform that reflects your vision, resonates with your audience, and stands tall amidst the competition. Your journey begins here, anchored by expertise and passion."
+      },
+      {
+        "title": "Training",
+        "description": "Beyond guidance, a treasure trove of knowledge. Not only will I walk you through your digital domain, but you'll also receive comprehensive resources to help you navigate with confidence. Empowerment in every click, and information at your fingertips."
+      },
+      {
+        "title": "Hosting",
+        "description": "Sturdy as a Viking ship. Venture into the online world with hosting that doesn't just support but enhances your journey. Experience unmatched reliability, blazing speed, and robustness, ensuring you're ready for any storm the digital seas might throw, making your digital voyage smooth and hassle-free."
+      }
+    ]
+  },
+  "textAndImage": {
+    "title": "Ready to set sail?",
+    "description": "In the vast expanse of the online world, it's easy to feel lost amidst countless competitors. Navigating this environment requires more than just a vision—it demands expertise, precision, and an understanding of the ever-evolving landscape. That's where Varangian Venture comes in. Offering meticulously crafted designs, expansive training resources, and unwavering guidance, we're here to ensure that your digital venture doesn't just set sail, but truly thrives. Embrace a partnership that transforms your challenges into tangible successes and steers your aspirations to online prominence.",
+    "alignImage": "left",
+    "image": {
+      "src": "/images/hero.jpg",
+      "alt": "A longship on a dark Nordic fjord at dawn"
+    }
+  },
+  "banner": {
+    "title": "Embark on Your Digital Odyssey",
+    "description": "Unlock the potential of your online venture. Let's chart the course together.",
+    "selectTheme": "secondary",
+    "button": {
+      "title": "Get in touch",
+      "href": "/contact",
+      "selectTheme": "primary"
+    }
+  }
+}

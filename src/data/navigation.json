@@ -1,0 +1,39 @@
+{
+  "header": {
+    "title": "Varangian",
+    "slogan": "Crafted. Ready. Yours.",
+    "links": [
+      { "title": "Services", "href": "/services" },
+      { "title": "About", "href": "/about" },
+      { "title": "Contact", "href": "/contact" }
+    ]
+  },
+  "footer": {
+    "social": {
+      "title": "Follow",
+      "links": [
+        {
+          "title": "LinkedIn",
+          "href": "https://www.linkedin.com/",
+          "isExternal": true
+        },
+        {
+          "title": "X",
+          "href": "https://x.com/",
+          "isExternal": true
+        },
+        {
+          "title": "Email",
+          "href": "mailto:hello@example.com"
+        }
+      ]
+    },
+    "brand": {
+      "title": "Varangian",
+      "description": "Embark on your digital odyssey, steering your business towards unparalleled online horizons."
+    },
+    "subFooter": {
+      "title": "Varangian Venture"
+    }
+  }
+}

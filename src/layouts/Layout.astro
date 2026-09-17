@@ -4,13 +4,14 @@ import Header from '../components/navigation/Header.astro';
 import Footer from '../components/navigation/Footer.astro';
 import MobileFooter from '../components/navigation/MobileFooter.astro';
 import navigation from '../data/navigation.json';
+import site from '../data/site.json';
 
 interface Props {
 	title?: string;
 	description?: string;
 }
 
-const { title = 'Varangian Venture', description } = Astro.props;
+const { title = site.title, description = site.description } = Astro.props;
 ---
 
 <!doctype html>

@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/blocks/Hero.astro';
+import Textarea from '../components/blocks/Textarea.astro';
+import Cards from '../components/blocks/Cards.astro';
+import Banner from '../components/blocks/Banner.astro';
+import TextAndImage from '../components/blocks/TextAndImage.astro';
+import Accordion from '../components/blocks/Accordion.astro';
+import services from '../data/services.json';
+---
+
+<Layout {...(services.meta ?? {})}>
+	<main>
+		<Hero {...services.hero} />
+
+		<Textarea {...services.textarea} />
+
+		<Cards {...services.cards} />
+
+		<Textarea {...services.evenIf} />
+
+		<Cards {...services.discover} />
+
+		<Cards {...services.plans} />
+
+		<Banner {...services.banner} />
+
+		<TextAndImage {...services.textAndImage} />
+
+		<Accordion {...services.accordion} />
+	</main>
+</Layout>

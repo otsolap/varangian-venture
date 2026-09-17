@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TextAndImage from '../components/blocks/TextAndImage.astro';
+import Textarea from '../components/blocks/Textarea.astro';
+import Cards from '../components/blocks/Cards.astro';
+import about from '../data/about.json';
+---
+
+<Layout {...(about.meta ?? {})}>
+	<main>
+		<TextAndImage {...about.textAndImage} />
+
+		<Textarea {...about.textarea} />
+
+		<Cards {...about.cards} />
+	</main>
+</Layout>
