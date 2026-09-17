@@ -19,9 +19,10 @@ interface Props {
 	description?: string;
 	image?: HeroImage;
 	buttons?: HeroButton[];
+	mediaWidth?: boolean;
 }
 
-const { title, description, image, buttons = [] } = Astro.props;
+const { title, description, image, buttons = [], mediaWidth = false } = Astro.props;
 
 const visibleButtons = buttons.filter((button) => button.href);
 ---
@@ -29,12 +30,12 @@ const visibleButtons = buttons.filter((button) => button.href);
 <div class:list={['hero', { 'hero--with-image': image?.src }]}>
 	{
 		image?.src && (
-			<div class="mediaContainer">
+			<div class:list={['mediaContainer', { fullWrapper: mediaWidth }]}>
 				<img
 					class="image"
 					src={image.src}
 					alt={image.alt ?? ''}
-					width={image.width ?? 720}
+					width={image.width ?? (mediaWidth ? 1440 : 720)}
 					height={image.height ?? 560}
 				/>
 			</div>
@@ -109,6 +110,7 @@ const visibleButtons = buttons.filter((button) => button.href);
 		align-items: center;
 		justify-content: flex-start;
 		position: relative;
+		z-index: 1;
 		min-width: 0;
 	}
 
@@ -193,6 +195,24 @@ const visibleButtons = buttons.filter((button) => button.href);
 
 		.hero--with-image .mediaContainer {
 			max-height: initial;
+		}
+
+		.fullWrapper {
+			position: absolute;
+			max-width: var(--container-desktop);
+			inset: 0;
+			flex: none;
+			height: 561px;
+			max-height: 561px;
+		}
+
+		.fullWrapper .image {
+			width: 100%;
+			height: 561px;
+			max-height: 561px;
+			aspect-ratio: 16 / 9;
+			border-radius: inherit;
+			object-fit: cover;
 		}
 
 		.content h1 {

@@ -130,7 +130,7 @@ const { id, title, description, accordions = [] } = Astro.props;
 
 	.toggle {
 		border: 1px solid var(--color-white);
-		transition: 0.6s ease-in-out;
+		transition: background-color 0.2s ease;
 		width: 100%;
 	}
 
@@ -145,10 +145,6 @@ const { id, title, description, accordions = [] } = Astro.props;
 
 	.activeToggle .heading {
 		font-weight: 900;
-	}
-
-	.activeToggle .answer {
-		color: var(--color-white);
 	}
 
 	.flexBox {
@@ -171,7 +167,6 @@ const { id, title, description, accordions = [] } = Astro.props;
 		padding-top: var(--spacing-single);
 		padding-bottom: var(--spacing-single);
 		margin-bottom: 0;
-		transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	.icon {
@@ -207,6 +202,7 @@ const { id, title, description, accordions = [] } = Astro.props;
 		max-height: 0;
 		overflow: hidden;
 		background-color: var(--color-primary);
+		color: var(--color-white);
 		padding-left: var(--spacing-half);
 	}
 
