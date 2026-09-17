@@ -1,0 +1,237 @@
+---
+interface AccordionItem {
+	title: string;
+	body: string;
+	open?: boolean;
+}
+
+interface Props {
+	id?: string;
+	title?: string;
+	description?: string;
+	accordions?: AccordionItem[];
+}
+
+const { id, title, description, accordions = [] } = Astro.props;
+---
+
+{
+	accordions.length > 0 && (
+		<section class="accordion" id={id}>
+			{(title || description) && (
+				<header class="header">
+					{title && <h2>{title}</h2>}
+					{description && <p>{description}</p>}
+				</header>
+			)}
+			<div class="wrapper">
+				<div class="content">
+					{accordions.map((item) => (
+						<div
+							class:list={[
+								'toggle',
+								item.open ? 'activeToggle' : 'inactiveToggle',
+							]}
+							data-accordion-item
+						>
+							<button
+								class="flexBox"
+								type="button"
+								aria-expanded={item.open ? 'true' : 'false'}
+								data-accordion-toggle
+							>
+								<h4 class="heading">{item.title}</h4>
+								<svg
+									class:list={['icon', item.open ? 'iconLeft' : 'iconDown']}
+									viewBox="0 0 24 24"
+									width="30"
+									height="30"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									aria-hidden="true"
+									data-accordion-icon
+								>
+									<path d="M6 9l6 6 6-6"></path>
+								</svg>
+							</button>
+							<div
+								class:list={['answer', { divider: item.open }]}
+								data-accordion-answer
+							>
+								<p class="text">{item.body}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+	)
+}
+
+<script>
+	function initAccordion() {
+		document.querySelectorAll('[data-accordion-item]').forEach((item) => {
+			if (!(item instanceof HTMLElement)) return;
+			if (item.dataset.accordionReady === 'true') return;
+			item.dataset.accordionReady = 'true';
+
+			const toggle = item.querySelector('[data-accordion-toggle]');
+			const answer = item.querySelector('[data-accordion-answer]');
+			const icon = item.querySelector('[data-accordion-icon]');
+			if (!(answer instanceof HTMLElement)) return;
+
+			function setOpen(open: boolean) {
+				item.classList.toggle('activeToggle', open);
+				item.classList.toggle('inactiveToggle', !open);
+				answer.classList.toggle('divider', open);
+				icon?.classList.toggle('iconLeft', open);
+				icon?.classList.toggle('iconDown', !open);
+				toggle?.setAttribute('aria-expanded', String(open));
+				answer.style.maxHeight = open ? `${answer.scrollHeight}px` : '0px';
+			}
+
+			setOpen(item.classList.contains('activeToggle'));
+			toggle?.addEventListener('click', () => {
+				setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+			});
+		});
+	}
+
+	initAccordion();
+</script>
+
+<style>
+	.header {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-single);
+		padding-bottom: var(--spacing-double);
+	}
+
+	.wrapper {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--spacing-single);
+		width: 100%;
+	}
+
+	.content {
+		max-width: 100%;
+		width: 100%;
+		border: 2px solid transparent;
+		border-radius: var(--spacing-single-quarter);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+
+	.toggle {
+		border: 1px solid var(--color-white);
+		transition: 0.6s ease-in-out;
+		width: 100%;
+	}
+
+	.inactiveToggle {
+		background-color: var(--color-primary-dark);
+	}
+
+	.activeToggle {
+		background-color: var(--color-secondary-semidark);
+		color: var(--color-black);
+	}
+
+	.activeToggle .heading {
+		font-weight: 900;
+	}
+
+	.activeToggle .answer {
+		color: var(--color-white);
+	}
+
+	.flexBox {
+		display: flex;
+		align-items: center;
+		background-color: inherit;
+		width: 100%;
+		border: 0;
+		padding: 0;
+		color: inherit;
+		cursor: pointer;
+		text-align: left;
+		font: inherit;
+	}
+
+	.heading {
+		color: inherit;
+		font-weight: 700;
+		margin-left: var(--spacing-single);
+		padding-top: var(--spacing-single);
+		padding-bottom: var(--spacing-single);
+		margin-bottom: 0;
+		transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.icon {
+		background-image: none;
+		cursor: pointer;
+		margin-right: var(--spacing-single);
+		margin-left: auto;
+		width: 1.875rem;
+		height: 1.875rem;
+		line-height: 2.25rem;
+		background-color: inherit;
+		color: inherit;
+		flex-shrink: 0;
+	}
+
+	.iconDown {
+		transition: transform 0.6s ease-in-out;
+	}
+
+	.iconLeft {
+		transform: rotate(90deg);
+		transition: transform 0.6s ease-in-out;
+	}
+
+	.divider {
+		border-color: var(--color-white);
+		border-top-width: 2px;
+		border-top-style: solid;
+	}
+
+	.answer {
+		transition: max-height 0.6s ease;
+		max-height: 0;
+		overflow: hidden;
+		background-color: var(--color-primary);
+		padding-left: var(--spacing-half);
+	}
+
+	.text {
+		padding: var(--spacing-single) var(--spacing-half);
+	}
+
+	@media (width >= 1440px) {
+		.header {
+			max-width: var(--container-ipad-landscape);
+			flex: 0 0 50%;
+		}
+
+		.wrapper {
+			flex-direction: row;
+			gap: var(--spacing-double);
+		}
+
+		.content {
+			max-width: 50%;
+			flex: 0 0 50%;
+		}
+
+		.text {
+			padding: var(--spacing-double) var(--spacing-single);
+		}
+	}
+</style>
