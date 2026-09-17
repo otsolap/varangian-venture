@@ -9,7 +9,7 @@ interface BlockImage {
 interface Props {
 	id?: string;
 	title?: string;
-	description?: string;
+	description?: string | string[];
 	image?: BlockImage;
 	alignImage?: 'left' | 'right';
 }
@@ -22,7 +22,12 @@ const {
 	alignImage = 'right',
 } = Astro.props;
 
-const showText = Boolean(title || description);
+const paragraphs = Array.isArray(description)
+	? description.filter(Boolean)
+	: description
+		? [description]
+		: [];
+const showText = Boolean(title || paragraphs.length);
 ---
 
 <section class="textAndImage" id={id}>
@@ -46,7 +51,9 @@ const showText = Boolean(title || description);
 			showText && (
 				<div class="column">
 					{title && <h2>{title}</h2>}
-					{description && <p>{description}</p>}
+					{paragraphs.map((paragraph) => (
+						<p>{paragraph}</p>
+					))}
 				</div>
 			)
 		}
@@ -73,6 +80,7 @@ const showText = Boolean(title || description);
 		width: 100%;
 		min-width: 0;
 		padding: var(--spacing-single);
+		gap: var(--spacing-single);
 	}
 
 	.imageContainer {

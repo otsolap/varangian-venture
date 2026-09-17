@@ -2,12 +2,17 @@
 interface Props {
 	id?: string;
 	title?: string;
-	description?: string;
+	description?: string | string[];
 	selectTheme?: 'primary' | 'secondary' | 'tertiary';
 }
 
 const { id, title, description, selectTheme = 'secondary' } = Astro.props;
-const show = Boolean(title || description);
+const paragraphs = Array.isArray(description)
+	? description.filter(Boolean)
+	: description
+		? [description]
+		: [];
+const show = Boolean(title || paragraphs.length);
 ---
 
 {
@@ -21,7 +26,9 @@ const show = Boolean(title || description);
 			id={id}
 		>
 			{title && <h2>{title}</h2>}
-			{description && <p>{description}</p>}
+			{paragraphs.map((paragraph) => (
+				<p>{paragraph}</p>
+			))}
 		</section>
 	)
 }
@@ -34,6 +41,9 @@ const show = Boolean(title || description);
 		word-wrap: break-word;
 		padding-left: var(--spacing-double);
 		padding-right: var(--spacing-double);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-single);
 	}
 
 	@media (width >= 1440px) {

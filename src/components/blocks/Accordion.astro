@@ -1,7 +1,7 @@
 ---
 interface AccordionItem {
 	title: string;
-	body: string;
+	description?: string;
 	open?: boolean;
 }
 
@@ -13,10 +13,11 @@ interface Props {
 }
 
 const { id, title, description, accordions = [] } = Astro.props;
+const show = Boolean(title || description || accordions.length);
 ---
 
 {
-	accordions.length > 0 && (
+	show && (
 		<section class="accordion" id={id}>
 			{(title || description) && (
 				<header class="header">
@@ -59,7 +60,7 @@ const { id, title, description, accordions = [] } = Astro.props;
 								class:list={['answer', { divider: item.open }]}
 								data-accordion-answer
 							>
-								<p class="text">{item.body}</p>
+								<p class="text">{item.description}</p>
 							</div>
 						</div>
 					))}
