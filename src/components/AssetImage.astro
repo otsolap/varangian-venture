@@ -1,0 +1,38 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+	src: ImageMetadata;
+	alt: string;
+	class?: string;
+	width?: number;
+	height?: number;
+	layout?: 'constrained' | 'full-width' | 'fixed' | 'none';
+	priority?: boolean;
+	fit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down';
+}
+
+const {
+	src,
+	alt,
+	class: className,
+	width,
+	height,
+	layout = 'constrained',
+	priority = false,
+	fit = 'cover',
+} = Astro.props;
+---
+
+<Image
+	src={src}
+	alt={alt}
+	class={className}
+	width={width}
+	height={height}
+	format="webp"
+	layout={layout}
+	priority={priority}
+	fit={fit}
+/>

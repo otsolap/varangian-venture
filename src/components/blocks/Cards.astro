@@ -1,4 +1,7 @@
 ---
+import AssetImage from '../AssetImage.astro';
+import { resolveLocalImage } from '../../lib/images';
+
 interface CardImage {
 	src: string;
 	alt: string;
@@ -21,6 +24,11 @@ interface Props {
 }
 
 const { id, title, description, cards = [] } = Astro.props;
+
+const items = cards.map((item) => ({
+	...item,
+	localImage: item.image?.src ? resolveLocalImage(item.image.src) : undefined,
+}));
 ---
 
 <section class="cards" id={id}>
@@ -33,18 +41,19 @@ const { id, title, description, cards = [] } = Astro.props;
 		)
 	}
 	{
-		cards.length > 0 && (
+		items.length > 0 && (
 			<div class="wrapper">
-				{cards.map((item) => (
+				{items.map((item) => (
 					<article class="card">
-						{item.image?.src && (
+						{item.localImage && (
 							<figure class="imageContainer">
-								<img
+								<AssetImage
 									class="image"
-									src={item.image.src}
-									alt={item.image.alt ?? ''}
-									width={item.image.width ?? 150}
-									height={item.image.height ?? 150}
+									src={item.localImage}
+									alt={item.image?.alt ?? ''}
+									width={item.image?.width ?? 150}
+									height={item.image?.height ?? 150}
+									layout="fixed"
 								/>
 							</figure>
 						)}
@@ -119,7 +128,7 @@ const { id, title, description, cards = [] } = Astro.props;
 		margin-bottom: var(--spacing-double);
 	}
 
-	.image {
+	.imageContainer :global(.image) {
 		display: block;
 		width: 150px;
 		height: 150px;
