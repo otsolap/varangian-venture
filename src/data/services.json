@@ -7,8 +7,8 @@
     "title": "Start your online presence without tech hassle",
     "description": "Embark on your digital odyssey, steering your business towards unparalleled online horizons.",
     "image": {
-      "src": "/images/varangian-theme-hero.jpg",
-      "alt": "Golden-hour view of Constantinople with sailing ships on the Bosphorus"
+      "src": "/images/heroes/byzantine_dawn.webp",
+      "alt": "Constantinople at golden hour with sailing ships on the Bosphorus"
     }
   },
   "textarea": {
