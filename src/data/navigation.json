@@ -24,7 +24,7 @@
         },
         {
           "title": "Email",
-          "href": "mailto:hello@example.com"
+          "href": "/contact"
         }
       ]
     },
@@ -33,7 +33,11 @@
       "description": "Embark on your digital odyssey, steering your business towards unparalleled online horizons."
     },
     "subFooter": {
-      "title": "Varangian Venture"
+      "title": "Varangian Venture",
+      "link": {
+        "title": "Privacy Policy",
+        "href": "/legal"
+      }
     }
   }
 }

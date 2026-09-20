@@ -1,0 +1,198 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+	successMessage?: string;
+	errorMessage?: string;
+}
+
+const {
+	title,
+	description,
+	successMessage = 'Message sent. I will get back to you soon.',
+	errorMessage = 'The message did not send. Please try again in a moment.',
+} = Astro.props;
+
+const params = Astro.url.searchParams;
+const sent = params.get('sent') === '1';
+const errorCode = params.get('error');
+
+const errorText =
+	errorCode === 'missing'
+		? 'Name, email, and message are required.'
+		: errorCode === 'invalid'
+			? 'Check the form fields and try again.'
+			: errorCode
+				? errorMessage
+				: '';
+---
+
+<section class="formEmbed" id="contact">
+	<div class="container">
+		<article class="content">
+			{
+				sent ? (
+					<div class="status status--success" role="status">
+						<p>{successMessage}</p>
+					</div>
+				) : (
+					<form class="form" method="POST" action="/api/contact">
+						<header class="header">
+							{title && <h1 class="title">{title}</h1>}
+							{description && <p>{description}</p>}
+						</header>
+						{errorText && (
+							<div class="status status--error" role="alert">
+								<p>{errorText}</p>
+							</div>
+						)}
+						<div class="inputWrapper">
+							<label class="honeypot" aria-hidden="true">
+								Company
+								<input
+									type="text"
+									name="company"
+									tabindex="-1"
+									autocomplete="off"
+								/>
+							</label>
+							<label class="inputBlock">
+								<span class="label">Name</span>
+								<input class="input" type="text" name="name" required maxlength="200" />
+							</label>
+							<label class="inputBlock">
+								<span class="label">Email</span>
+								<input class="input" type="email" name="email" required maxlength="200" />
+							</label>
+							<label class="inputBlock">
+								<span class="label">Message</span>
+								<textarea
+									class="textarea"
+									name="message"
+									rows="6"
+									required
+									maxlength="5000"
+								/>
+							</label>
+						</div>
+						<footer class="footer">
+							<button class="button button--primary" type="submit">Send</button>
+						</footer>
+					</form>
+				)
+			}
+		</article>
+	</div>
+</section>
+
+<style>
+	.formEmbed {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.container {
+		background-color: var(--color-primary-semidark);
+		padding: var(--spacing-double);
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	.header {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-single);
+		padding-bottom: var(--spacing-single);
+	}
+
+	.title {
+		margin-bottom: 0;
+	}
+
+	.content,
+	.form,
+	.inputWrapper {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--spacing-single);
+		width: 100%;
+	}
+
+	.footer {
+		padding: var(--spacing-single) 0 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-single);
+	}
+
+	.label {
+		display: block;
+		font-weight: 700;
+		margin-bottom: var(--spacing-half);
+	}
+
+	.inputBlock {
+		width: 100%;
+	}
+
+	.input,
+	.textarea {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		font-size: 1rem;
+		font-family: inherit;
+		color: var(--color-white);
+		background-color: var(--color-primary-dark);
+		border-radius: var(--spacing-quarter);
+		border: 1px solid var(--color-primary-light);
+		padding: var(--spacing-half) var(--spacing-single);
+	}
+
+	.input {
+		height: var(--spacing-triple);
+	}
+
+	.textarea {
+		min-height: 10rem;
+		resize: vertical;
+	}
+
+	.input:focus,
+	.textarea:focus {
+		outline: 2px solid var(--color-secondary);
+		outline-offset: 2px;
+	}
+
+	.honeypot {
+		position: absolute;
+		left: -10000px;
+		top: auto;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+
+	.status {
+		width: 100%;
+		padding: var(--spacing-single);
+		border-radius: var(--spacing-quarter);
+	}
+
+	.status--success {
+		background-color: var(--color-success-dark);
+	}
+
+	.status--error {
+		background-color: var(--color-error-dark);
+	}
+
+	@media (width >= 1440px) {
+		.container {
+			max-width: var(--container-desktop);
+			border-radius: var(--spacing-single-quarter);
+		}
+	}
+</style>

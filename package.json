@@ -12,6 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^14.3.2",
     "@fontsource/hind-guntur": "^5.3.0",
     "@fontsource/poppins": "^5.3.0",
     "astro": "^7.3.2"

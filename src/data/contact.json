@@ -1,6 +1,12 @@
 {
   "meta": {
     "title": "Contact — Varangian Venture",
-    "description": "We build and back companies that last."
+    "description": "Tell me about your venture. I will reply by email."
+  },
+  "form": {
+    "title": "Get in touch",
+    "description": "Tell me about your venture. I will reply by email.",
+    "successMessage": "Message sent. I will get back to you soon.",
+    "errorMessage": "The message did not send. Please try again in a moment."
   }
 }

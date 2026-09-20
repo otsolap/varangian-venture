@@ -1,0 +1,18 @@
+{
+	"name": "varangian-venture",
+	"main": "@astrojs/cloudflare/entrypoints/server",
+	"compatibility_date": "2026-09-20",
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": "./dist"
+	},
+	"send_email": [
+		{
+			"name": "EMAIL"
+		}
+	],
+	"observability": {
+		"enabled": true
+	}
+}
