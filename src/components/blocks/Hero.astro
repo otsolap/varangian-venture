@@ -31,7 +31,7 @@ const visibleButtons = buttons.filter((button) => button.href);
 const localImage = image?.src ? resolveLocalImage(image.src) : undefined;
 ---
 
-<div class:list={['hero', { 'hero--with-image': localImage }]}>
+<div class:list={['hero', { 'hero--with-image': localImage, 'hero--full': mediaWidth }]}>
 	{
 		localImage && (
 			<div class:list={['mediaContainer', { fullWrapper: mediaWidth }]}>
@@ -115,7 +115,6 @@ const localImage = image?.src ? resolveLocalImage(image.src) : undefined;
 		align-items: center;
 		justify-content: flex-start;
 		position: relative;
-		z-index: 1;
 		min-width: 0;
 	}
 
@@ -164,22 +163,28 @@ const localImage = image?.src ? resolveLocalImage(image.src) : undefined;
 		.hero--with-image .mediaContainer,
 		.hero--with-image .contentContainer {
 			flex: 0 0 50%;
+			width: 50%;
+			max-width: 50%;
+		}
+
+		.hero--with-image .mediaContainer {
+			height: 561px;
+			max-height: 561px;
+			overflow: hidden;
 		}
 
 		.mediaContainer :global(.image) {
-			width: inherit;
-			height: inherit;
+			width: 100%;
+			height: 100%;
+			max-width: none;
 			aspect-ratio: 1 / 1;
+			object-fit: cover;
+			object-position: center;
 		}
 
 		.content {
 			padding: var(--spacing-double);
 			gap: var(--spacing-single-half);
-		}
-
-		.hero--with-image .mediaContainer {
-			max-height: 561px;
-			height: 561px;
 		}
 
 		.buttonWrapper {
@@ -202,13 +207,20 @@ const localImage = image?.src ? resolveLocalImage(image.src) : undefined;
 			max-height: initial;
 		}
 
+		.hero--full .contentContainer {
+			z-index: 1;
+		}
+
 		.fullWrapper {
 			position: absolute;
 			max-width: var(--container-desktop);
 			inset: 0;
 			flex: none;
+			width: 100%;
+			max-width: 100%;
 			height: 561px;
 			max-height: 561px;
+			overflow: hidden;
 		}
 
 		.fullWrapper :global(.image) {
