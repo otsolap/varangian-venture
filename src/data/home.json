@@ -1,18 +1,18 @@
 {
   "meta": {
     "title": "Varangian Venture",
-    "description": "We build and back companies that last."
+    "description": "Crafted. Ready. Yours."
   },
   "hero": {
-    "title": "We build and back companies that last.",
-    "description": "Varangian Venture partners with founders from first idea through scale. Edit this copy in src/data/home.json.",
+    "title": "Your Digital Odyssey Begins.",
+    "description": "With a keen eye for detail and a passion for perfection, I guide your digital journey, ensuring a memorable online presence.",
     "image": {
       "src": "/images/heroes/varangian.webp",
       "alt": "A Varangian warrior standing in a longship with an axe, painted as a mosaic"
     },
     "buttons": [
-      { "title": "See the work", "href": "#work", "selectTheme": "primary" },
-      { "title": "Get in touch", "href": "/contact", "selectTheme": "secondary" }
+      { "title": "Work with me", "href": "/services", "selectTheme": "primary" },
+      { "title": "Get to know me", "href": "/about", "selectTheme": "secondary" }
     ]
   },
   "cards": {
