@@ -21,19 +21,35 @@
     "cards": [
       {
         "title": "Design",
-        "description": "Forging designs with the precision of a seasoned craftsman. Dive into a world of aesthetics where modern techniques merge with artisan dedication, ensuring your online presence is both a work of art and a beacon of quality."
+        "description": "Forging designs with the precision of a seasoned craftsman. Dive into a world of aesthetics where modern techniques merge with artisan dedication, ensuring your online presence is both a work of art and a beacon of quality.",
+        "image": {
+          "src": "/images/icons/kirjoituspoyta-ikoni.webp",
+          "alt": ""
+        }
       },
       {
         "title": "Website Building",
-        "description": "Crafting seamless digital landscapes tailored uniquely for your brand. Dive into the vast digital seas with a platform that reflects your vision, resonates with your audience, and stands tall amidst the competition. Your journey begins here, anchored by expertise and passion."
+        "description": "Crafting seamless digital landscapes tailored uniquely for your brand. Dive into the vast digital seas with a platform that reflects your vision, resonates with your audience, and stands tall amidst the competition. Your journey begins here, anchored by expertise and passion.",
+        "image": {
+          "src": "/images/icons/craftsman-tools-variantti-ikoni.webp",
+          "alt": ""
+        }
       },
       {
         "title": "Training",
-        "description": "Beyond guidance, a treasure trove of knowledge. Not only will I walk you through your digital domain, but you'll also receive comprehensive resources to help you navigate with confidence. Empowerment in every click, and information at your fingertips."
+        "description": "Beyond guidance, a treasure trove of knowledge. Not only will I walk you through your digital domain, but you'll also receive comprehensive resources to help you navigate with confidence. Empowerment in every click, and information at your fingertips.",
+        "image": {
+          "src": "/images/icons/laurel-wreath-ikoni.webp",
+          "alt": ""
+        }
       },
       {
         "title": "Hosting",
-        "description": "Sturdy as a Viking ship. Venture into the online world with hosting that doesn't just support but enhances your journey. Experience unmatched reliability, blazing speed, and robustness, ensuring you're ready for any storm the digital seas might throw, making your digital voyage smooth and hassle-free."
+        "description": "Sturdy as a Viking ship. Venture into the online world with hosting that doesn't just support but enhances your journey. Experience unmatched reliability, blazing speed, and robustness, ensuring you're ready for any storm the digital seas might throw, making your digital voyage smooth and hassle-free.",
+        "image": {
+          "src": "/images/icons/laiva-ikoni.webp",
+          "alt": ""
+        }
       }
     ]
   },
@@ -50,6 +66,10 @@
     "title": "Embark on Your Digital Odyssey",
     "description": "Unlock the potential of your online venture. Let's chart the course together.",
     "selectTheme": "secondary",
+    "image": {
+      "src": "/images/icons/kompassi_logo_02.webp",
+      "alt": ""
+    },
     "button": {
       "title": "Get in touch",
       "href": "/contact",
