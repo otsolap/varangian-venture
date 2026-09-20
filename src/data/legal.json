@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "Privacy Policy — Varangian Venture",
+    "description": "How Varangian Venture collects and handles your data."
+  },
+  "textarea": {
+    "title": "Privacy Policy",
+    "description": [
+      "Just like I value my own privacy, I respect yours. I collect data only when it's necessary, and I handle it with care and transparency.",
+      "Your potentially sensitive information is safe with me. I won't share it with others unless you explicitly allow it or if the law requires it.",
+      "Any information you provide through contact forms, sign-up forms on my website, or via email is securely stored. Should you wish, I can delete any personal information you've shared with me upon request."
+    ]
+  },
+  "tools": {
+    "title": "Using Matomo and ConvertKit",
+    "description": [
+      "For insights on website usage, I use Matomo, which means I have 100% control of all the data collected. Learn more by exploring Matomo's privacy policy.",
+      "Additionally, I use ConvertKit for managing newsletter subscriptions and communications. To understand how ConvertKit handles your data, please refer to their privacy policy.",
+      "If you have any questions or concerns about how your data is handled, feel free to reach out to me."
+    ]
+  }
+}

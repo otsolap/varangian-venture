@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Textarea from '../components/blocks/Textarea.astro';
+import legal from '../data/legal.json';
+---
+
+<Layout {...(legal.meta ?? {})}>
+	<main>
+		<Textarea {...legal.textarea} />
+
+		<Textarea {...legal.tools} />
+	</main>
+</Layout>
