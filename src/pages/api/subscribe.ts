@@ -5,35 +5,82 @@ import { CONVERTKIT_API_KEY, CONVERTKIT_FORM_ID } from 'astro:env/server';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function json(status: number, body: { ok: boolean; message: string }): Response {
-	return new Response(JSON.stringify(body), {
-		status,
-		headers: { 'Content-Type': 'application/json' },
-	});
+function wantsJson(request: Request): boolean {
+	const accept = request.headers.get('accept') ?? '';
+	return accept.includes('application/json');
+}
+
+function backPath(request: Request, origin: string): string {
+	const referer = request.headers.get('referer');
+
+	if (!referer) return '/';
+
+	try {
+		const refUrl = new URL(referer);
+		if (refUrl.origin === origin) return refUrl.pathname || '/';
+	} catch {
+		return '/';
+	}
+
+	return '/';
+}
+
+function reply(
+	request: Request,
+	status: number,
+	body: { ok: boolean; message: string },
+	redirectTo: string,
+): Response {
+	if (wantsJson(request)) {
+		return new Response(JSON.stringify(body), {
+			status,
+			headers: { 'Content-Type': 'application/json' },
+		});
+	}
+
+	return Response.redirect(redirectTo, 303);
 }
 
 export const POST: APIRoute = async ({ request }) => {
-	const origin = request.headers.get('origin');
 	const url = new URL(request.url);
+	const origin = request.headers.get('origin');
+	const path = backPath(request, url.origin);
+	const successUrl = `${url.origin}${path}?subscribed=1#subscribe`;
+	const errorUrl = `${url.origin}${path}?error=subscribe#subscribe`;
 
 	if (origin && origin !== url.origin) {
-		return json(403, { ok: false, message: 'The form could not be sent.' });
+		return reply(
+			request,
+			403,
+			{ ok: false, message: 'The form could not be sent.' },
+			errorUrl,
+		);
 	}
 
 	const data = await request.formData();
 	const honeypot = String(data.get('company') ?? '').trim();
 
 	if (honeypot) {
-		return json(200, {
-			ok: true,
-			message: 'Subscription successful. Please check your email to confirm.',
-		});
+		return reply(
+			request,
+			200,
+			{
+				ok: true,
+				message: 'Subscription successful. Please check your email to confirm.',
+			},
+			successUrl,
+		);
 	}
 
 	const email = String(data.get('email') ?? '').trim();
 
-	if (!email || !EMAIL_RE.test(email)) {
-		return json(400, { ok: false, message: 'A valid email is required.' });
+	if (!email || !EMAIL_RE.test(email) || email.length > 200) {
+		return reply(
+			request,
+			400,
+			{ ok: false, message: 'A valid email is required.' },
+			errorUrl,
+		);
 	}
 
 	const response = await fetch(
@@ -50,14 +97,24 @@ export const POST: APIRoute = async ({ request }) => {
 
 	if (!response.ok) {
 		console.error('ConvertKit subscribe failed', response.status);
-		return json(502, {
-			ok: false,
-			message: 'Email failed to submit. Please try again in a few moments.',
-		});
+		return reply(
+			request,
+			502,
+			{
+				ok: false,
+				message: 'Email failed to submit. Please try again in a few moments.',
+			},
+			errorUrl,
+		);
 	}
 
-	return json(200, {
-		ok: true,
-		message: 'Subscription successful. Please check your email to confirm.',
-	});
+	return reply(
+		request,
+		200,
+		{
+			ok: true,
+			message: 'Subscription successful. Please check your email to confirm.',
+		},
+		successUrl,
+	);
 };
