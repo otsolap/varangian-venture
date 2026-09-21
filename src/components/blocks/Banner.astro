@@ -156,5 +156,10 @@ const localImage = image?.src ? resolveLocalImage(image.src) : undefined;
 		.banner__inner {
 			border-radius: var(--spacing-single-quarter);
 		}
+
+		.banner:last-child .banner__inner {
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+		}
 	}
 </style>

@@ -46,15 +46,19 @@ section {
 /* Tablet Styles */
 @media (width >= 768px) {
 	section {
-		padding-top: var(--spacing-triple);
-		padding-bottom: var(--spacing-triple);
+		padding-top: var(--spacing-quadruple);
+		padding-bottom: var(--spacing-quadruple);
 	}
 }
 
 /* Desktop Styles */
 @media (width >= 1440px) {
 	section {
-		padding-top: var(--spacing-quadruple);
-		padding-bottom: var(--spacing-quadruple);
+		padding-top: var(--spacing-quintuple);
+		padding-bottom: var(--spacing-quintuple);
 	}
+}
+
+section:last-child {
+	padding-bottom: 0;
 }

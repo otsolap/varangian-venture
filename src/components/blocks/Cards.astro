@@ -83,12 +83,16 @@ const items = cards.map((item) => ({
 
 	.cards__header {
 		gap: var(--spacing-single);
-		padding-bottom: var(--spacing-double);
 	}
 
 	.cards__list {
 		gap: var(--spacing-single);
 		flex-wrap: wrap;
+		padding-block: var(--spacing-double);
+	}
+
+	.cards:last-child .cards__list {
+		padding-bottom: 0;
 	}
 
 	.card {
