@@ -34,21 +34,21 @@ const items = cards.map((item) => ({
 <section class="cards" id={id}>
 	{
 		title && (
-			<header class="header">
-				{title && <h2>{title}</h2>}
-				{description && <p>{description}</p>}
+			<header class="cards__header">
+				{title && <h2 class="cards__title">{title}</h2>}
+				{description && <p class="cards__subtitle">{description}</p>}
 			</header>
 		)
 	}
 	{
 		items.length > 0 && (
-			<div class="wrapper">
+			<div class="cards__list">
 				{items.map((item) => (
 					<article class="card">
 						{item.localImage && (
-							<figure class="imageContainer">
+							<figure class="card__figure">
 								<AssetImage
-									class="image"
+									class="card__image"
 									src={item.localImage}
 									alt={item.image?.alt ?? ''}
 									width={item.image?.width ?? 150}
@@ -58,9 +58,9 @@ const items = cards.map((item) => ({
 							</figure>
 						)}
 						{(item.title || item.description) && (
-							<div class="body">
-								{item.title && <h3 class="title">{item.title}</h3>}
-								{item.description && <p>{item.description}</p>}
+							<div class="card__body">
+								{item.title && <h3 class="card__title">{item.title}</h3>}
+								{item.description && <p class="card__text">{item.description}</p>}
 							</div>
 						)}
 					</article>
@@ -75,18 +75,18 @@ const items = cards.map((item) => ({
 		background-color: var(--color-primary-dark);
 	}
 
-	.header,
-	.wrapper {
+	.cards__header,
+	.cards__list {
 		display: flex;
 		flex-direction: column;
 	}
 
-	.header {
+	.cards__header {
 		gap: var(--spacing-single);
 		padding-bottom: var(--spacing-double);
 	}
 
-	.wrapper {
+	.cards__list {
 		gap: var(--spacing-single);
 		flex-wrap: wrap;
 	}
@@ -110,7 +110,7 @@ const items = cards.map((item) => ({
 		border-color: var(--color-secondary);
 	}
 
-	.body {
+	.card__body {
 		flex-grow: 1;
 		display: flex;
 		flex-direction: column;
@@ -118,17 +118,18 @@ const items = cards.map((item) => ({
 		width: 100%;
 	}
 
-	.body p {
+	.card__text {
 		white-space: pre-line;
+		text-align: center;
 	}
 
-	.imageContainer {
+	.card__figure {
 		position: relative;
 		margin-top: var(--spacing-single);
 		margin-bottom: var(--spacing-double);
 	}
 
-	.imageContainer :global(.image) {
+	.card__figure :global(.card__image) {
 		display: block;
 		width: 150px;
 		height: 150px;
@@ -138,19 +139,15 @@ const items = cards.map((item) => ({
 		object-position: center;
 	}
 
-	.title {
+	.card__title {
 		color: var(--color-white);
 		font-weight: 600;
 		padding-bottom: var(--spacing-single);
 		text-align: center;
 	}
 
-	.body p {
-		text-align: center;
-	}
-
 	@media (width >= 768px) {
-		.wrapper {
+		.cards__list {
 			flex-direction: row;
 		}
 
@@ -161,12 +158,12 @@ const items = cards.map((item) => ({
 	}
 
 	@media (width >= 1440px) {
-		.header {
+		.cards__header {
 			max-width: var(--container-ipad-landscape);
 			flex: 0 0 50%;
 		}
 
-		.wrapper {
+		.cards__list {
 			gap: var(--spacing-double);
 		}
 

@@ -19,22 +19,22 @@ const show = Boolean(title || paragraphs.length);
 	show && (
 		<section
 			class:list={[
-				'content',
+				'textarea',
 				`bg-${selectTheme}`,
 				{ 'color-black': selectTheme === 'primary' },
 			]}
 			id={id}
 		>
-			{title && <h2>{title}</h2>}
+			{title && <h2 class="textarea__title">{title}</h2>}
 			{paragraphs.map((paragraph) => (
-				<p>{paragraph}</p>
+				<p class="textarea__text">{paragraph}</p>
 			))}
 		</section>
 	)
 }
 
 <style>
-	.content {
+	.textarea {
 		margin-right: auto;
 		margin-left: auto;
 		width: 100%;
@@ -47,7 +47,7 @@ const show = Boolean(title || paragraphs.length);
 	}
 
 	@media (width >= 1440px) {
-		.content {
+		.textarea {
 			max-width: var(--container-desktop);
 			border-radius: var(--spacing-single-quarter);
 		}

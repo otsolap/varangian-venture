@@ -26,15 +26,15 @@ const socialLinks = social?.links?.filter((link) => link.href) ?? [];
 ---
 
 <footer class="footer">
-	<div class="columnContainer footerColumns-2">
-		<div class="column">
-			{social?.title && <h3 class="heading">{social.title}</h3>}
+	<div class="footer__columns footer__columns--2">
+		<div class="footer__column">
+			{social?.title && <h3 class="footer__heading">{social.title}</h3>}
 			{
 				socialLinks.length > 0 && (
-					<div class="linkWrapper">
+					<div class="footer__links">
 						{socialLinks.map((link) => (
 							<a
-								class="link"
+								class="footer__link"
 								href={link.href}
 								target={link.isExternal ? '_blank' : undefined}
 								rel={link.isExternal ? 'noreferrer' : undefined}
@@ -46,24 +46,24 @@ const socialLinks = social?.links?.filter((link) => link.href) ?? [];
 				)
 			}
 		</div>
-		<div class="column">
-			{brand?.title && <h3 class="heading">{brand.title}</h3>}
-			{brand?.description && <p class="text">{brand.description}</p>}
+		<div class="footer__column">
+			{brand?.title && <h3 class="footer__heading">{brand.title}</h3>}
+			{brand?.description && <p class="footer__text">{brand.description}</p>}
 		</div>
 	</div>
 	{
 		subFooter && (
-			<div class="subFooter">
-				<div class="subFooterContent">
+			<div class="footer__sub">
+				<div class="footer__sub-inner">
 					{subFooter.title && (
-						<span class="brandName">
+						<span class="footer__brand">
 							{subFooter.title} &#169; {year}
 						</span>
 					)}
 					{subFooter.link?.href && (
 						<>
 							<span class="desktop-only"> &#124;</span>
-							<a class="legal" href={subFooter.link.href}>
+							<a class="footer__legal" href={subFooter.link.href}>
 								{subFooter.link.title}
 							</a>
 						</>
@@ -74,7 +74,7 @@ const socialLinks = social?.links?.filter((link) => link.href) ?? [];
 	}
 </footer>
 
-<style>
+<style is:global>
 	.footer {
 		margin: 0 auto;
 		width: 100%;
@@ -85,18 +85,18 @@ const socialLinks = social?.links?.filter((link) => link.href) ?? [];
 		border-top: 1px solid var(--color-white);
 	}
 
-	.column {
+	.footer__column {
 		flex: 100%;
 		max-width: 100%;
 		min-width: 0;
 	}
 
-	.column:first-of-type {
+	.footer__column:first-of-type {
 		margin-top: var(--spacing-single);
 		margin-bottom: var(--spacing-single);
 	}
 
-	.columnContainer {
+	.footer__columns {
 		gap: var(--spacing-single);
 		width: 100%;
 		display: flex;
@@ -104,44 +104,44 @@ const socialLinks = social?.links?.filter((link) => link.href) ?? [];
 		padding: var(--spacing-double) var(--spacing-single);
 	}
 
-	.heading {
+	.footer__heading {
 		font-weight: 900;
 		padding-top: var(--spacing-single);
 	}
 
-	.text {
+	.footer__text {
 		font-weight: 700;
 		padding: var(--spacing-half) 0;
 		margin-bottom: var(--spacing-single);
 	}
 
-	.linkWrapper {
+	.footer__links {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-single);
 		margin-top: var(--spacing-single);
 	}
 
-	.link,
-	.legal {
+	.footer__link,
+	.footer__legal {
 		font-size: 1rem;
 		transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
-	.link:focus,
-	.link:hover,
-	.legal:focus,
-	.legal:hover {
+	.footer__link:focus,
+	.footer__link:hover,
+	.footer__legal:focus,
+	.footer__legal:hover {
 		color: var(--color-secondary);
 	}
 
-	.subFooter {
+	.footer__sub {
 		padding: var(--spacing-single);
 		margin-top: var(--spacing-single);
 		border-top: 2px solid var(--color-white);
 	}
 
-	.subFooterContent {
+	.footer__sub-inner {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-half);
@@ -152,23 +152,23 @@ const socialLinks = social?.links?.filter((link) => link.href) ?? [];
 			padding-bottom: var(--spacing-triple);
 		}
 
-		.columnContainer {
+		.footer__columns {
 			flex-direction: row;
 			padding-left: var(--spacing-double);
 			padding-right: var(--spacing-double);
 		}
 
-		.column:first-of-type {
+		.footer__column:first-of-type {
 			margin-top: 0;
 			margin-bottom: 0;
 		}
 
-		.footerColumns-2 .column {
+		.footer__columns--2 .footer__column {
 			max-width: calc(100% / 2);
 			flex: 0 0 calc(50% - var(--spacing-single));
 		}
 
-		.subFooter {
+		.footer__sub {
 			padding-left: var(--spacing-double);
 			padding-right: var(--spacing-double);
 		}
@@ -181,7 +181,7 @@ const socialLinks = social?.links?.filter((link) => link.href) ?? [];
 			max-width: var(--container-desktop);
 		}
 
-		.columnContainer {
+		.footer__columns {
 			gap: var(--spacing-double);
 			max-width: var(--container-desktop);
 			margin-left: auto;
@@ -189,26 +189,26 @@ const socialLinks = social?.links?.filter((link) => link.href) ?? [];
 			padding: initial;
 		}
 
-		.footerColumns-2 .column {
+		.footer__columns--2 .footer__column {
 			max-width: calc(100% / 2);
 			flex: 0 0 calc(50% - var(--spacing-double));
 		}
 
-		.subFooter {
+		.footer__sub {
 			margin-top: var(--spacing-double);
 		}
 
-		.subFooterContent {
+		.footer__sub-inner {
 			flex-direction: row;
 			margin: 0 auto;
 			max-width: var(--container-desktop);
 		}
 
-		.brandName {
+		.footer__brand {
 			padding-right: var(--spacing-half);
 		}
 
-		.legal {
+		.footer__legal {
 			padding-left: var(--spacing-half);
 		}
 	}

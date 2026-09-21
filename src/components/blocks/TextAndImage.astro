@@ -34,14 +34,19 @@ const showText = Boolean(title || paragraphs.length);
 const localImage = image?.src ? resolveLocalImage(image.src) : undefined;
 ---
 
-<section class="textAndImage" id={id}>
-	<div class:list={['wrapper', { reverseWrapper: alignImage !== 'left' && localImage }]}>
+<section class="text-and-image" id={id}>
+	<div
+		class:list={[
+			'text-and-image__layout',
+			{ 'text-and-image__layout--reverse': alignImage !== 'left' && localImage },
+		]}
+	>
 		{
 			localImage && (
-				<div class="column">
-					<figure class="imageContainer">
+				<div class="text-and-image__column">
+					<figure class="text-and-image__figure">
 						<AssetImage
-							class="image"
+							class="text-and-image__image"
 							src={localImage}
 							alt={image?.alt ?? ''}
 							width={image?.width ?? 668}
@@ -53,10 +58,10 @@ const localImage = image?.src ? resolveLocalImage(image.src) : undefined;
 		}
 		{
 			showText && (
-				<div class="column">
-					{title && <h2>{title}</h2>}
+				<div class="text-and-image__column">
+					{title && <h2 class="text-and-image__title">{title}</h2>}
 					{paragraphs.map((paragraph) => (
-						<p>{paragraph}</p>
+						<p class="text-and-image__text">{paragraph}</p>
 					))}
 				</div>
 			)
@@ -65,19 +70,19 @@ const localImage = image?.src ? resolveLocalImage(image.src) : undefined;
 </section>
 
 <style>
-	.textAndImage {
+	.text-and-image {
 		position: relative;
 		display: flex;
 		flex-direction: column;
 	}
 
-	.wrapper {
+	.text-and-image__layout {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-single);
 	}
 
-	.column {
+	.text-and-image__column {
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
@@ -87,14 +92,14 @@ const localImage = image?.src ? resolveLocalImage(image.src) : undefined;
 		gap: var(--spacing-single);
 	}
 
-	.imageContainer {
+	.text-and-image__figure {
 		position: relative;
 		height: 300px;
 		width: 300px;
 		max-width: 100%;
 	}
 
-	.imageContainer :global(.image) {
+	.text-and-image__figure :global(.text-and-image__image) {
 		border-radius: var(--spacing-single-quarter);
 		width: inherit;
 		height: inherit;
@@ -106,50 +111,50 @@ const localImage = image?.src ? resolveLocalImage(image.src) : undefined;
 	}
 
 	@media (width >= 768px) {
-		.wrapper {
+		.text-and-image__layout {
 			flex-direction: row;
 		}
 
-		.reverseWrapper {
+		.text-and-image__layout--reverse {
 			flex-direction: row-reverse;
 		}
 
-		.column {
+		.text-and-image__column {
 			flex: 0 0 50%;
 			align-items: flex-start;
 			justify-content: center;
 		}
 
-		.imageContainer {
+		.text-and-image__figure {
 			height: 400px;
 			width: 400px;
 		}
 
-		.imageContainer :global(.image) {
+		.text-and-image__figure :global(.text-and-image__image) {
 			box-shadow: var(--spacing-single) var(--spacing-single) 0 0 var(--color-secondary);
 		}
 	}
 
 	@media (width >= 1024px) {
-		.imageContainer {
+		.text-and-image__figure {
 			width: 100%;
 			max-width: calc(100% - var(--spacing-single));
 			height: auto;
 			aspect-ratio: 16 / 9;
 		}
 
-		.imageContainer :global(.image) {
+		.text-and-image__figure :global(.text-and-image__image) {
 			width: 100%;
 			height: 100%;
 		}
 	}
 
 	@media (width >= 1280px) {
-		.imageContainer {
+		.text-and-image__figure {
 			max-width: calc(100% - 24px);
 		}
 
-		.imageContainer :global(.image) {
+		.text-and-image__figure :global(.text-and-image__image) {
 			box-shadow: 24px 24px 0 0 var(--color-secondary);
 		}
 	}

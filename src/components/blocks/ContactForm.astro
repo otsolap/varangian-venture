@@ -27,27 +27,27 @@ const errorText =
 				: '';
 ---
 
-<section class="formEmbed" id="contact">
-	<div class="container">
-		<article class="content">
+<section class="contact-form" id="contact">
+	<div class="contact-form__inner">
+		<article class="contact-form__body">
 			{
 				sent ? (
-					<div class="status status--success" role="status">
+					<div class="contact-form__status contact-form__status--success" role="status">
 						<p>{successMessage}</p>
 					</div>
 				) : (
-					<form class="form" method="POST" action="/api/contact">
-						<header class="header">
-							{title && <h1 class="title">{title}</h1>}
-							{description && <p>{description}</p>}
+					<form class="contact-form__form" method="POST" action="/api/contact">
+						<header class="contact-form__header">
+							{title && <h1 class="contact-form__title">{title}</h1>}
+							{description && <p class="contact-form__subtitle">{description}</p>}
 						</header>
 						{errorText && (
-							<div class="status status--error" role="alert">
+							<div class="contact-form__status contact-form__status--error" role="alert">
 								<p>{errorText}</p>
 							</div>
 						)}
-						<div class="inputWrapper">
-							<label class="honeypot" aria-hidden="true">
+						<div class="contact-form__fields">
+							<label class="contact-form__honeypot" aria-hidden="true">
 								Company
 								<input
 									type="text"
@@ -56,18 +56,30 @@ const errorText =
 									autocomplete="off"
 								/>
 							</label>
-							<label class="inputBlock">
-								<span class="label">Name</span>
-								<input class="input" type="text" name="name" required maxlength="200" />
+							<label class="contact-form__field">
+								<span class="contact-form__label">Name</span>
+								<input
+									class="contact-form__input"
+									type="text"
+									name="name"
+									required
+									maxlength="200"
+								/>
 							</label>
-							<label class="inputBlock">
-								<span class="label">Email</span>
-								<input class="input" type="email" name="email" required maxlength="200" />
+							<label class="contact-form__field">
+								<span class="contact-form__label">Email</span>
+								<input
+									class="contact-form__input"
+									type="email"
+									name="email"
+									required
+									maxlength="200"
+								/>
 							</label>
-							<label class="inputBlock">
-								<span class="label">Message</span>
+							<label class="contact-form__field">
+								<span class="contact-form__label">Message</span>
 								<textarea
-									class="textarea"
+									class="contact-form__textarea"
 									name="message"
 									rows="6"
 									required
@@ -75,7 +87,7 @@ const errorText =
 								/>
 							</label>
 						</div>
-						<footer class="footer">
+						<footer class="contact-form__footer">
 							<button class="button button--primary" type="submit">Send</button>
 						</footer>
 					</form>
@@ -86,32 +98,32 @@ const errorText =
 </section>
 
 <style>
-	.formEmbed {
+	.contact-form {
 		padding-left: 0;
 		padding-right: 0;
 	}
 
-	.container {
+	.contact-form__inner {
 		background-color: var(--color-primary-semidark);
 		padding: var(--spacing-double);
 		margin: 0 auto;
 		width: 100%;
 	}
 
-	.header {
+	.contact-form__header {
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-single);
 		padding-bottom: var(--spacing-single);
 	}
 
-	.title {
+	.contact-form__title {
 		margin-bottom: 0;
 	}
 
-	.content,
-	.form,
-	.inputWrapper {
+	.contact-form__body,
+	.contact-form__form,
+	.contact-form__fields {
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -120,25 +132,25 @@ const errorText =
 		width: 100%;
 	}
 
-	.footer {
+	.contact-form__footer {
 		padding: var(--spacing-single) 0 0;
 		display: flex;
 		flex-direction: column;
 		gap: var(--spacing-single);
 	}
 
-	.label {
+	.contact-form__label {
 		display: block;
 		font-weight: 700;
 		margin-bottom: var(--spacing-half);
 	}
 
-	.inputBlock {
+	.contact-form__field {
 		width: 100%;
 	}
 
-	.input,
-	.textarea {
+	.contact-form__input,
+	.contact-form__textarea {
 		display: block;
 		width: 100%;
 		max-width: 100%;
@@ -151,22 +163,22 @@ const errorText =
 		padding: var(--spacing-half) var(--spacing-single);
 	}
 
-	.input {
+	.contact-form__input {
 		height: var(--spacing-triple);
 	}
 
-	.textarea {
+	.contact-form__textarea {
 		min-height: 10rem;
 		resize: vertical;
 	}
 
-	.input:focus,
-	.textarea:focus {
+	.contact-form__input:focus,
+	.contact-form__textarea:focus {
 		outline: 2px solid var(--color-secondary);
 		outline-offset: 2px;
 	}
 
-	.honeypot {
+	.contact-form__honeypot {
 		position: absolute;
 		left: -10000px;
 		top: auto;
@@ -175,22 +187,22 @@ const errorText =
 		overflow: hidden;
 	}
 
-	.status {
+	.contact-form__status {
 		width: 100%;
 		padding: var(--spacing-single);
 		border-radius: var(--spacing-quarter);
 	}
 
-	.status--success {
+	.contact-form__status--success {
 		background-color: var(--color-success-dark);
 	}
 
-	.status--error {
+	.contact-form__status--error {
 		background-color: var(--color-error-dark);
 	}
 
 	@media (width >= 1440px) {
-		.container {
+		.contact-form__inner {
 			max-width: var(--container-desktop);
 			border-radius: var(--spacing-single-quarter);
 		}
