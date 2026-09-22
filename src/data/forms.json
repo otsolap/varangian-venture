@@ -1,0 +1,16 @@
+{
+  "contactForm": {
+    "title": "Get in touch",
+    "description": "Tell me about your venture. I will reply by email.",
+    "successMessage": "Message sent. I will get back to you soon.",
+    "errorMessage": "The message did not send. Please try again in a moment."
+  },
+  "subscribeForm": {
+    "title": "Stay on course",
+    "description": "Get notes on building and running your site. No spam.",
+    "placeholder": "Your email",
+    "buttonTitle": "Subscribe",
+    "successMessage": "Subscription successful. Please check your email to confirm.",
+    "errorMessage": "Email failed to submit. Please try again in a few moments."
+  }
+}

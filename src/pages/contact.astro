@@ -4,10 +4,11 @@ export const prerender = false;
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/blocks/ContactForm.astro';
 import contact from '../data/contact.json';
+import forms from '../data/forms.json';
 ---
 
 <Layout {...(contact.meta ?? {})}>
 	<main>
-		<ContactForm {...contact.form} />
+		<ContactForm {...forms.contactForm} />
 	</main>
 </Layout>

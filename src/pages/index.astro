@@ -5,6 +5,7 @@ import Cards from '../components/blocks/Cards.astro';
 import Banner from '../components/blocks/Banner.astro';
 import TextAndImage from '../components/blocks/TextAndImage.astro';
 import SubscribeForm from '../components/blocks/SubscribeForm.astro';
+import forms from '../data/forms.json';
 import home from '../data/home.json';
 ---
 
@@ -16,7 +17,7 @@ import home from '../data/home.json';
 
 		<TextAndImage {...home.textAndImage} />
 
-		<SubscribeForm {...home.subscribe} />
+		<SubscribeForm {...forms.subscribeForm} />
 
 		<Banner {...home.banner} />
 	</main>

@@ -62,14 +62,6 @@
       "alt": "Byzantine mosaic of a warrior and a noble shaking hands"
     }
   },
-  "subscribe": {
-    "title": "Stay on course",
-    "description": "Get notes on building and running your site. No spam.",
-    "placeholder": "Your email",
-    "buttonTitle": "Subscribe",
-    "successMessage": "Subscription successful. Please check your email to confirm.",
-    "errorMessage": "Email failed to submit. Please try again in a few moments."
-  },
   "banner": {
     "title": "Embark on Your Digital Odyssey",
     "description": "Unlock the potential of your online venture. Let's chart the course together.",
