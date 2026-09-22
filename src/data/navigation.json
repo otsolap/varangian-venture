@@ -13,18 +13,13 @@
       "title": "Follow",
       "links": [
         {
-          "title": "LinkedIn",
-          "href": "https://www.linkedin.com/",
-          "isExternal": true
+          "title": "otso@varangianventure.com",
+          "href": "mailto:otso@varangianventure.com"
         },
         {
-          "title": "X",
-          "href": "https://x.com/",
+          "title": "@otso_lap",
+          "href": "https://x.com/@otso_lap",
           "isExternal": true
-        },
-        {
-          "title": "Email",
-          "href": "/contact"
         }
       ]
     },

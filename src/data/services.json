@@ -27,7 +27,7 @@
         "title": "Easy Content Crafting",
         "description": "Build with open-source solutions. This very site you are viewing is done with the same very tools I am offering to you. Easy to use content system management tool allows you to craft your content and pages with ease. All without the need of any technical savviness.",
         "image": {
-          "src": "/images/icons/sulka-ikoni.webp",
+          "src": "/images/emblems/sulka-ikoni.webp",
           "alt": ""
         }
       },
@@ -35,7 +35,7 @@
         "title": "Reach your audience.",
         "description": "Allow people to reach out to you via forms or email, while alongside gathering a newsletter subscription list. I’m offering build-in integrations with newsletter services to reach out your audience, while building your subscribers list under your own database. All under your control and ownership.",
         "image": {
-          "src": "/images/icons/postikyyhkynen-ikoni.webp",
+          "src": "/images/emblems/postikyyhkynen-ikoni.webp",
           "alt": ""
         }
       },
@@ -43,7 +43,7 @@
         "title": "Bonfire Draw",
         "description": "The site’s design and user experience will be crafted to match with your audience needs. You will have tools to create variety of content without being limited by strict page templates. Behind the scenes Matomo Analytics is running, tracking, and following your audiences’ behavior. All tracking data will be exclusively owned by you.",
         "image": {
-          "src": "/images/icons/bonfire-ikoni.webp",
+          "src": "/images/emblems/bonfire-ikoni.webp",
           "alt": ""
         }
       },
@@ -51,7 +51,7 @@
         "title": "Maintenance & Support",
         "description": "A website is like real estate. You want to maintain it and upgrade it as you get deeper into your voyage. I’m not here to make a quick buck but instead think of the long-term picture. I actively look out for my projects and enjoy further co-operations even after release.",
         "image": {
-          "src": "/images/icons/laiva-ikoni.webp",
+          "src": "/images/emblems/laiva-ikoni.webp",
           "alt": ""
         }
       }
@@ -73,7 +73,7 @@
         "title": "How smooth it is to weave content",
         "description": "I’ve chosen stylish modern elements for you to craft rich and varied content, that will resonate with your brand and audience. Easily craft and manage your content even with a tight schedule or doubts about your creative knack.",
         "image": {
-          "src": "/images/icons/kirjoituspoyta-variantti-ikoni.webp",
+          "src": "/images/emblems/kirjoituspoyta-variantti-ikoni.webp",
           "alt": ""
         }
       },
@@ -81,7 +81,7 @@
         "title": "You have a 24/7 marketing house",
         "description": "Engage directly with your audience through the site, its forms, your email platform and with the additional support of newsletter subscription service. You will be able to keep track of the audiences’ behavior to better understand what resonates and works for them.",
         "image": {
-          "src": "/images/icons/majakka-ikoni.webp",
+          "src": "/images/emblems/majakka-ikoni.webp",
           "alt": ""
         }
       },
@@ -89,7 +89,7 @@
         "title": "You have total control",
         "description": "Over your online presence, independent of social media algorithm changes. Your website will work for you non-stop to promote your services, even while you are busy working on your core mission.",
         "image": {
-          "src": "/images/icons/shakki-ikoni.webp",
+          "src": "/images/emblems/shakki-ikoni.webp",
           "alt": ""
         }
       },
@@ -97,7 +97,7 @@
         "title": "You've Enlisted a Loyal Varangian Guard",
         "description": "Just as the Varangian Guards we’re the trusted elite of the Byzantine emperors, I stand alongside you in this digital odyssey. I’m focused on the long-term maintenance and advancements of the website. I’m not interested in quick transactional services but rather long-term relationship to help you scale your online presence and support you in your business ventures.",
         "image": {
-          "src": "/images/icons/varajangi-ikoni.webp",
+          "src": "/images/emblems/varajangi-ikoni.webp",
           "alt": ""
         }
       }
@@ -111,7 +111,7 @@
         "title": "Premium: Varangian Expedition",
         "description": "3000€\n0 % VAT\n\nBest for entrepreneurs who want to tip their toes into the water. You will receive a simple but effective website.\n\nTheme designed and developed for your brand.\nHosting\nDomain registration\nEmail",
         "image": {
-          "src": "/images/icons/sotaleiri_ikoni_01.webp",
+          "src": "/images/emblems/sotaleiri_ikoni_01.webp",
           "alt": ""
         }
       },
@@ -119,7 +119,7 @@
         "title": "Deluxe: Odyssey Navigator",
         "description": "5000€\n0 % VAT\n\nSuitable for businesses seeking more growth and engagement\n\nEverything in Premium, plus:\nThe all-in-one-solution\nNewsletter for building your audience.\nMatomo Analytics for traffic. Track and understand your audience.",
         "image": {
-          "src": "/images/icons/laiva_ikoni.webp",
+          "src": "/images/emblems/laiva_ikoni.webp",
           "alt": ""
         }
       },
@@ -127,7 +127,7 @@
         "title": "Ultimate: Constantinopolitan Conquest",
         "description": "8000€\n0 % VAT\n\nPerfect for businesses aiming for a standout online presence with added support of advertised traffic.\n\nAll features of Deluxe, plus:\nMidjourney integration for unique, AI-generated art to match your brand. Forget boring stock photos or amateur photos taken from your phone.\nGoogle Ads setup for increased visibility and reach.",
         "image": {
-          "src": "/images/icons/konsantinople-ikoni.webp",
+          "src": "/images/emblems/konsantinople-ikoni.webp",
           "alt": ""
         }
       }
@@ -135,14 +135,15 @@
   },
   "banner": {
     "title": "Ready to Launch Your Digital Odyssey?",
+    "description": "Book a free call. Let's talk about your project and how I can help you.",
     "selectTheme": "secondary",
     "image": {
-      "src": "/images/icons/kompassi_logo_02.webp",
+      "src": "/images/emblems/kompassi_logo_02.webp",
       "alt": ""
     },
     "button": {
-      "title": "Contact",
-      "href": "/contact",
+      "title": "Email otso@varangianventure.com",
+      "href": "mailto:otso@varangianventure.com",
       "selectTheme": "primary"
     }
   },

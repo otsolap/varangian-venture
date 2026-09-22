@@ -19,7 +19,7 @@ const errorCode = params.get('error');
 
 const errorText =
 	errorCode === 'missing'
-		? 'Name, email, and message are required.'
+		? 'Full name, email, and message are required.'
 		: errorCode === 'invalid'
 			? 'Check the form fields and try again.'
 			: errorCode
@@ -57,7 +57,7 @@ const errorText =
 								/>
 							</label>
 							<label class="contact-form__field">
-								<span class="contact-form__label">Name</span>
+								<span class="contact-form__label">Full name</span>
 								<input
 									class="contact-form__input"
 									type="text"
@@ -77,7 +77,7 @@ const errorText =
 								/>
 							</label>
 							<label class="contact-form__field">
-								<span class="contact-form__label">Message</span>
+								<span class="contact-form__label">Reason for contacting</span>
 								<textarea
 									class="contact-form__textarea"
 									name="message"
