@@ -1,5 +1,12 @@
 ---
+import { isCurrentPath } from '../../lib/path';
+
 interface HeaderLink {
+	href: string;
+	title: string;
+}
+
+interface CallToAction {
 	href: string;
 	title: string;
 }
@@ -8,10 +15,13 @@ interface Props {
 	title: string;
 	slogan?: string;
 	links?: HeaderLink[];
+	callToAction?: CallToAction;
 }
 
-const { title, slogan, links = [] } = Astro.props;
+const { title, slogan, links = [], callToAction } = Astro.props;
 const path = Astro.url.pathname;
+const menuLinks = callToAction ? links.filter((link) => link.href !== callToAction.href) : links;
+const ctaCurrent = callToAction ? isCurrentPath(path, callToAction.href) : false;
 ---
 
 <div class="header">
@@ -24,21 +34,47 @@ const path = Astro.url.pathname;
 			)}
 			{slogan && <p class="header__slogan">{slogan}</p>}
 		</div>
+		{
+			callToAction && (
+				<a
+					class="button button--primary header__cta header__cta--bar"
+					href={callToAction.href}
+					aria-current={ctaCurrent ? 'page' : undefined}
+				>
+					{callToAction.title}
+				</a>
+			)
+		}
 	</header>
 	{
-		links.length > 0 && (
+		(menuLinks.length > 0 || callToAction) && (
 			<nav class="header__nav" aria-label="Primary">
 				<div class="header__nav-inner">
 					<div class="header__menu">
-						{links.map((link) => (
-							<a
-								class:list={['header__link', { 'header__link--active': path === link.href }]}
-								href={link.href}
-							>
-								{link.title}
-							</a>
-						))}
+						{menuLinks.map((link) => {
+							const current = isCurrentPath(path, link.href);
+							return (
+								<a
+									class:list={['header__link', { 'header__link--active': current }]}
+									href={link.href}
+									aria-current={current ? 'page' : undefined}
+								>
+									{link.title}
+								</a>
+							);
+						})}
 					</div>
+					{
+						callToAction && (
+							<a
+								class="button button--primary header__cta"
+								href={callToAction.href}
+								aria-current={ctaCurrent ? 'page' : undefined}
+							>
+								{callToAction.title}
+							</a>
+						)
+					}
 				</div>
 			</nav>
 		)
@@ -61,9 +97,18 @@ const path = Astro.url.pathname;
 		padding-left: var(--spacing-half);
 		padding-right: var(--spacing-half);
 		align-items: center;
-		justify-content: center;
+		justify-content: space-between;
+		gap: var(--spacing-half);
 		background-color: var(--color-primary-dark);
 		border-bottom: 1px solid var(--color-white);
+	}
+
+	.header__cta {
+		flex: 0 0 auto;
+		align-self: center;
+		width: fit-content;
+		max-width: 12rem;
+		white-space: nowrap;
 	}
 
 	.header__nav,
@@ -83,7 +128,11 @@ const path = Astro.url.pathname;
 			flex-direction: column;
 			align-items: stretch;
 			padding: initial;
-			border-bottom: none;
+			border-bottom: 1px solid var(--color-white);
+		}
+
+		.header__cta--bar {
+			display: none;
 		}
 
 		.header__brand {
@@ -118,6 +167,8 @@ const path = Astro.url.pathname;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
+			justify-content: space-between;
+			gap: var(--spacing-double);
 			width: 100%;
 			max-width: var(--container-desktop);
 			margin: 0 auto;
@@ -138,7 +189,8 @@ const path = Astro.url.pathname;
 		}
 
 		.header__link:hover,
-		.header__link:focus {
+		.header__link:focus,
+		.header__link--active {
 			color: var(--color-secondary-semidark);
 			font-weight: 900;
 		}
@@ -152,10 +204,6 @@ const path = Astro.url.pathname;
 
 		.header__link {
 			font-size: var(--spacing-double);
-		}
-
-		.header__link--active {
-			font-weight: 900;
 		}
 	}
 </style>
