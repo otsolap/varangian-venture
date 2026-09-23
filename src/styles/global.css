@@ -58,7 +58,3 @@ section {
 		padding-bottom: var(--spacing-quintuple);
 	}
 }
-
-section:last-child:not(:only-child) {
-	padding-bottom: 0;
-}
