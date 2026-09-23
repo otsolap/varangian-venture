@@ -59,6 +59,6 @@ section {
 	}
 }
 
-section:last-child {
+section:last-child:not(:only-child) {
 	padding-bottom: 0;
 }
