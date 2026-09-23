@@ -6,6 +6,7 @@
   "hero": {
     "title": "Your Digital Odyssey Begins.",
     "description": "With a keen eye for detail and a passion for perfection, I guide your digital journey, ensuring a memorable online presence.",
+    "alignImage": "right",
     "image": {
       "src": "/images/heroes/varangian.webp",
       "alt": "A Varangian warrior standing in a longship with an axe, painted as a mosaic"

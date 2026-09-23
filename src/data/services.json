@@ -6,6 +6,7 @@
   "hero": {
     "title": "Start your online presence without tech hassle",
     "description": "Embark on your digital odyssey, steering your business towards unparalleled online horizons.",
+    "mediaWidth": true,
     "image": {
       "src": "/images/heroes/byzantine_dawn.webp",
       "alt": "Constantinople at golden hour with sailing ships on the Bosphorus"

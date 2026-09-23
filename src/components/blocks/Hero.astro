@@ -23,15 +23,25 @@ interface Props {
 	image?: HeroImage;
 	buttons?: HeroButton[];
 	mediaWidth?: boolean;
+	alignImage?: 'left' | 'right';
 }
 
-const { title, description, image, buttons = [], mediaWidth = false } = Astro.props;
+const { title, description, image, buttons = [], mediaWidth = false, alignImage = 'left' } = Astro.props;
 
 const visibleButtons = buttons.filter((button) => button.href);
 const localImage = image?.src ? resolveLocalImage(image.src) : undefined;
 ---
 
-<div class:list={['hero', { 'hero--with-image': localImage, 'hero--full': mediaWidth }]}>
+<div
+	class:list={[
+		'hero',
+		{
+			'hero--with-image': localImage,
+			'hero--full': mediaWidth,
+			'hero--image-right': alignImage === 'right' && !mediaWidth,
+		},
+	]}
+>
 	{
 		localImage && (
 			<div class:list={['hero__media', { 'hero__media--full': mediaWidth }]}>
@@ -192,6 +202,34 @@ const localImage = image?.src ? resolveLocalImage(image.src) : undefined;
 			gap: var(--spacing-single);
 			width: fit-content;
 		}
+
+		.hero--image-right {
+			flex-direction: row-reverse;
+		}
+
+		.hero--full .hero__content {
+			z-index: 1;
+		}
+
+		.hero--full.hero--with-image .hero__media {
+			position: absolute;
+			inset: 0;
+			flex: none;
+			width: 100%;
+			max-width: 100%;
+			height: 561px;
+			max-height: 561px;
+			overflow: hidden;
+		}
+
+		.hero--full .hero__media :global(.hero__image) {
+			width: 100%;
+			height: 561px;
+			max-height: 561px;
+			aspect-ratio: 16 / 9;
+			border-radius: inherit;
+			object-fit: cover;
+		}
 	}
 
 	@media (width >= 1440px) {
@@ -205,31 +243,6 @@ const localImage = image?.src ? resolveLocalImage(image.src) : undefined;
 
 		.hero--with-image .hero__media {
 			max-height: initial;
-		}
-
-		.hero--full .hero__content {
-			z-index: 1;
-		}
-
-		.hero__media--full {
-			position: absolute;
-			max-width: var(--container-desktop);
-			inset: 0;
-			flex: none;
-			width: 100%;
-			max-width: 100%;
-			height: 561px;
-			max-height: 561px;
-			overflow: hidden;
-		}
-
-		.hero__media--full :global(.hero__image) {
-			width: 100%;
-			height: 561px;
-			max-height: 561px;
-			aspect-ratio: 16 / 9;
-			border-radius: inherit;
-			object-fit: cover;
 		}
 
 		.hero__title {
