@@ -2,10 +2,14 @@
   "header": {
     "title": "Varangian Venture",
     "slogan": "Crafted. Ready. Yours.",
+    "callToAction": {
+      "title": "Work with me",
+      "href": "/contact"
+    },
     "links": [
-      { "title": "Services", "href": "/services" },
-      { "title": "About", "href": "/about" },
-      { "title": "Contact", "href": "/contact" }
+      { "title": "Services", "href": "/services", "icon": "compass" },
+      { "title": "About", "href": "/about", "icon": "spider-web" },
+      { "title": "Contact", "href": "/contact", "icon": "send" }
     ]
   },
   "footer": {
@@ -14,12 +18,14 @@
       "links": [
         {
           "title": "otso@varangianventure.com",
-          "href": "mailto:otso@varangianventure.com"
+          "href": "mailto:otso@varangianventure.com",
+          "icon": "email-outline"
         },
         {
           "title": "@otso_lap",
           "href": "https://x.com/@otso_lap",
-          "isExternal": true
+          "isExternal": true,
+          "icon": "x-logo"
         }
       ]
     },

@@ -1,7 +1,10 @@
 ---
+import NavIcon from './NavIcon.astro';
+
 interface FooterLink {
 	href: string;
 	title: string;
+	icon?: string;
 	isExternal?: boolean;
 }
 
@@ -39,6 +42,12 @@ const socialLinks = social?.links?.filter((link) => link.href) ?? [];
 								target={link.isExternal ? '_blank' : undefined}
 								rel={link.isExternal ? 'noreferrer' : undefined}
 							>
+								<span class="footer__icon-wrap">
+									<NavIcon
+										name={link.icon}
+										class={link.icon ? `footer__icon footer__icon--${link.icon}` : 'footer__icon'}
+									/>
+								</span>
 								{link.title}
 							</a>
 						))}
@@ -126,6 +135,37 @@ const socialLinks = social?.links?.filter((link) => link.href) ?? [];
 	.footer__legal {
 		font-size: 1rem;
 		transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.footer__link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		line-height: 1;
+	}
+
+	.footer__icon-wrap {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.75rem;
+		height: 1.75rem;
+		flex-shrink: 0;
+	}
+
+	.footer__icon {
+		display: block;
+		width: 1.75rem;
+		height: 1.75rem;
+	}
+
+	.footer__icon--x-logo {
+		width: 1.15rem;
+		height: 1.15rem;
+	}
+
+	.footer__icon path {
+		fill: currentColor;
 	}
 
 	.footer__link:focus,
