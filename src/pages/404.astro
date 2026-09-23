@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import notFound from '../data/404.json';
+
+const paragraphs = notFound.description.filter(Boolean);
+const buttons = notFound.buttons.filter((button) => button.href);
+---
+
+<Layout {...(notFound.meta ?? {})}>
+	<main>
+		<section class="not-found">
+			<header>
+				{notFound.title && <h1>{notFound.title}</h1>}
+			</header>
+			<article>
+				{paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+			</article>
+			{
+				buttons.length > 0 && (
+					<div class="not-found__actions">
+						{buttons.map((button) => (
+							<a class="button button--primary" href={button.href}>
+								{button.title}
+							</a>
+						))}
+					</div>
+				)
+			}
+		</section>
+	</main>
+</Layout>
+
+<style>
+	.not-found {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-single);
+	}
+
+	.not-found__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--spacing-single);
+	}
+</style>

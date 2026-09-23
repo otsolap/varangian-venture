@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "404 - Page Not Found — Varangian Venture",
+    "description": "Unfortunately, the page you were looking for cannot be found."
+  },
+  "title": "404 - Page Not Found",
+  "description": [
+    "Unfortunately, the page you were looking for cannot be found it might have been moved or deleted.",
+    "If you typed the address directly into the browsers address bar, you might want to double-check to make sure that no typing errors have slipped in.",
+    "Here are some useful links that could help you track down the content you're looking for"
+  ],
+  "buttons": [
+    { "title": "Home", "href": "/" },
+    { "title": "My services", "href": "/services" }
+  ]
+}
