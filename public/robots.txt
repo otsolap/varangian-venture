@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://varangianventure.com/sitemap-index.xml

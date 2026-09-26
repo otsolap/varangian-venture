@@ -1,13 +1,16 @@
 // @ts-check
 import { defineConfig, envField } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://varangianventure.com',
 	adapter: cloudflare({
 		imageService: 'compile',
 		prerenderEnvironment: 'node',
 	}),
+	integrations: [sitemap()],
 	session: false,
 	env: {
 		schema: {
