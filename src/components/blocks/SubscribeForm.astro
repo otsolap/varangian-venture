@@ -66,7 +66,11 @@ const {
 							autocomplete="email"
 						/>
 					</label>
-					<button class="button button--primary" type="submit" data-subscribe-submit>
+					<button
+						class="button button--primary subscribe-form__submit"
+						type="submit"
+						data-subscribe-submit
+					>
 						{buttonTitle}
 					</button>
 				</div>
@@ -236,11 +240,17 @@ const {
 	@media (width >= 768px) {
 		.subscribe-form__fields {
 			flex-direction: row;
-			align-items: flex-end;
+			align-items: center;
 		}
 
 		.subscribe-form__field {
 			flex: 1 1 auto;
+			max-width: 28rem;
+		}
+
+		.subscribe-form__submit {
+			align-self: center;
+			flex: 0 0 auto;
 		}
 	}
 
