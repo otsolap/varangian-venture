@@ -4,5 +4,9 @@
   "sameAs": ["https://x.com/@otso_lap"],
   "person": {
     "name": "Otso Lappalainen"
+  },
+  "image": {
+    "src": "/images/heroes/varangian.webp",
+    "alt": "A Varangian warrior standing in a longship with an axe, painted as a mosaic"
   }
 }
