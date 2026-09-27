@@ -1,10 +1,18 @@
 ---
-import '../styles/global.css';
-import Header from '../components/navigation/Header.astro';
-import Footer from '../components/navigation/Footer.astro';
-import MobileFooter from '../components/navigation/MobileFooter.astro';
+import ThemeLayout from 'varangian-theme/layouts/Layout.astro';
 import navigation from '../data/navigation.json';
-import Seo from '../components/Seo.astro';
+import site from '../data/site.json';
+import seo from '../data/seo.json';
+import {
+	absoluteUrl,
+	buildPageGraph,
+	canonicalUrl,
+	fullTitle,
+	robotsContent,
+	serializeJsonLd,
+	twitterSite,
+} from '../lib/seo';
+import { resolveLocalImage } from 'varangian-theme/lib/images.ts';
 
 interface Props {
 	title?: string;
@@ -14,22 +22,38 @@ interface Props {
 	imageAlt?: string;
 }
 
-const seo = Astro.props;
+const { title, description, noindex = false, image, imageAlt } = Astro.props;
+const siteUrl = Astro.site ?? new URL(Astro.url.origin);
+const pageTitle = fullTitle(title, site.title);
+const canonical = noindex ? undefined : canonicalUrl(siteUrl, Astro.url.pathname);
+const siteImage = seo.image?.src ? resolveLocalImage(seo.image.src) : undefined;
+const shareSrc = image ?? siteImage?.src;
+const shareAlt = imageAlt ?? (image ? undefined : seo.image?.alt);
+const imageUrl = shareSrc ? absoluteUrl(siteUrl, shareSrc) : undefined;
+const jsonLd = noindex
+	? undefined
+	: serializeJsonLd(
+			buildPageGraph(siteUrl, {
+				path: Astro.url.pathname,
+				title: pageTitle,
+				description,
+			}),
+		);
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/favicon.png" />
-		<meta name="generator" content={Astro.generator} />
-		<Seo {...seo} />
-	</head>
-	<body>
-		<Header {...navigation.header} />
-		<slot />
-		<Footer {...navigation.footer} />
-		<MobileFooter links={navigation.header.links} />
-	</body>
-</html>
+<ThemeLayout
+	navigation={navigation}
+	pageTitle={pageTitle}
+	description={description}
+	robots={robotsContent(noindex)}
+	canonical={canonical}
+	siteName={site.title}
+	imageUrl={imageUrl}
+	imageAlt={shareAlt}
+	imageWidth={!image && siteImage?.width ? siteImage.width : undefined}
+	imageHeight={!image && siteImage?.height ? siteImage.height : undefined}
+	twitterSite={twitterSite}
+	jsonLd={jsonLd}
+>
+	<slot />
+</ThemeLayout>

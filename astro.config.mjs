@@ -2,6 +2,7 @@
 import { defineConfig, envField } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
+import varangianTheme from 'varangian-theme';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,7 +11,7 @@ export default defineConfig({
 		imageService: 'compile',
 		prerenderEnvironment: 'node',
 	}),
-	integrations: [sitemap()],
+	integrations: [varangianTheme(), sitemap()],
 	session: false,
 	env: {
 		schema: {
