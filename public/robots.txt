@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://varangianventure.com/sitemap-index.xml
-Schemamap: https://varangianventure.com/schemamap.xml
