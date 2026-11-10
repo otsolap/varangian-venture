@@ -1,46 +1,62 @@
-# Astro Starter Kit: Basics
+# Varangian Venture
 
-```sh
-npm create astro@latest -- --template basics
-```
+Personal portfolio of [Otso Lappalainen](https://varangianventure.com).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The public site is [varangianventure.com](https://varangianventure.com). It presents Otso and the work he offers: design, websites, training, and hosting.
 
-## 🚀 Project Structure
+Page copy, navigation, and SEO text live in `src/data`. Layout and blocks come from the [`varangian-theme`](https://github.com/otsolap/varangian-theme) package. Do not copy theme files into this repo. Do not edit files under `node_modules/varangian-theme`.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Stack
+
+- [Astro](https://astro.build) 7
+- Cloudflare Workers through `@astrojs/cloudflare`
+- `varangian-theme` (private git dependency)
+- Node.js 22.12.0 or newer
+
+## Pages
+
+| Route | Page |
+| :---- | :--- |
+| `/` | Home |
+| `/about` | About |
+| `/services` | Services |
+| `/contact` | Contact. This page renders on each request. |
+| `/legal` | Privacy policy |
+
+The contact form posts to `/api/contact`. The newsletter form posts to `/api/subscribe`.
+
+## Project structure
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── src/
+│   ├── assets/images/   # site images
+│   ├── data/            # page copy, navigation, and SEO text
+│   ├── layouts/         # site layout (wraps the theme layout)
+│   ├── lib/             # SEO helpers
+│   └── pages/           # routes and API endpoints
+├── astro.config.mjs
+├── package.json
+└── wrangler.jsonc
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Commands
 
-## 🧞 Commands
+Run these from the project root.
 
-All commands are run from the root of the project, from a terminal:
+| Command | Action |
+| :---------------- | :--------------------------------------------- |
+| `npm install` | Install dependencies. GitHub SSH access is required for the theme. |
+| `npm run dev` | Start the local server at `http://localhost:4321` |
+| `npm run build` | Build the production site into `./dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npx wrangler deploy` | Deploy the Worker after a build |
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Forms
 
-## 👀 Want to learn more?
+Contact and subscribe need Worker secrets in Cloudflare. They are not stored in this repo.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Required: `CONVERTKIT_API_KEY`, `CONVERTKIT_FORM_ID`, and `CONTACT_TO`.
+
+Optional: `CONVERTKIT_SECRET_KEY` and `CONTACT_FROM`.
