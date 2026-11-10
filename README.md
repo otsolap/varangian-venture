@@ -60,3 +60,9 @@ Contact and subscribe need Worker secrets in Cloudflare. They are not stored in 
 Required: `CONVERTKIT_API_KEY`, `CONVERTKIT_FORM_ID`, and `CONTACT_TO`.
 
 Optional: `CONVERTKIT_SECRET_KEY` and `CONTACT_FROM`.
+
+## Rights
+
+Copyright © 2026 Otso. All rights reserved.
+
+No license is offered. No permission is given to copy, change, or share this source.
