@@ -17,7 +17,7 @@
     "@astrojs/cloudflare": "^14.3.2",
     "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.3.2",
-    "varangian-theme": "git+ssh://git@github.com/otsolap/varangian-theme.git#semver:~0.0.1"
+    "varangian-theme": "latest"
   },
   "allowScripts": {
     "esbuild": true
