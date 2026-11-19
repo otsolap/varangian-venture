@@ -1,0 +1,12 @@
+@import '@fontsource/hind-guntur/latin-400.css';
+@import '@fontsource/hind-guntur/latin-600.css';
+@import '@fontsource/hind-guntur/latin-700.css';
+@import '@fontsource/poppins/latin-400.css';
+@import '@fontsource/poppins/latin-600.css';
+@import '@fontsource/poppins/latin-700.css';
+@import '@fontsource/poppins/latin-900.css';
+
+:root {
+	--font-heading: 'Hind Guntur', sans-serif;
+	--font-body: 'Poppins', sans-serif;
+}
